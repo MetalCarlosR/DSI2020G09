@@ -1,0 +1,200 @@
+﻿<Page
+    x:Class="ProyectoDSI.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProyectoDSI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="TopButtons">
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="BorderBrush" Value="#FF151515"/>
+            <Setter Property="FontSize" Value="40px"/>
+            <Setter Property="FontWeight" Value="Black"/>
+            <Setter Property="Background" Value="#CC70C7DA"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+    </Page.Resources>
+    <Page.Background>
+        <AcrylicBrush TintColor="#CC70C7DA"/>
+    </Page.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="0.4*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Imagenes, en el juego seria el propio motor de renderizado-->
+        <Image Source="./Assets/Fondo.jpg" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4" Stretch="Fill"/>
+        <Image Source="./Assets/CarRender.png" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4" Margin="0, 0, 0, 200"/>
+        <Image Source="./Assets/Character.png"  Stretch="Uniform" Grid.Row="1" Margin="188,92,907,245" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <TextBlock Text="Player 2" Grid.Row="1" Margin="335,96,0,235" Grid.ColumnSpan="2" HorizontalAlignment="Left" FontSize="32" Grid.RowSpan="2"/>
+        <Viewbox Grid.Row="1" Grid.Column="1" Margin="83,99,1006,0" Height="36" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" >
+            <SymbolIcon Symbol="Accept"/>
+        </Viewbox>
+        <Viewbox Grid.Row="1" Margin="287,99,52,0" Height="36" Width="36" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" >
+            <SymbolIcon Symbol="Flag"/>
+        </Viewbox>
+        <Viewbox Grid.Row="1" Margin="373,63,1091,0" Height="36" Width="36" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Grid.ColumnSpan="2" >
+            <SymbolIcon Symbol="Repair"/>
+        </Viewbox>
+
+        <Image Source="./Assets/Character.png" Grid.Row="2" Grid.Column="1" Margin="0,70,423,82" Stretch="Uniform"/>
+        <TextBlock Text="Player 1" Grid.Row="2" Grid.Column="1" Margin="264,27,0,89" HorizontalAlignment="Left" FontSize="32"/>
+        <Viewbox Grid.Row="2" Grid.Column="1" Margin="380,27,700,0" Height="45" Width="45" VerticalAlignment="Top">
+            <SymbolIcon Symbol="Clear"/>
+        </Viewbox>
+        <Viewbox Grid.Row="1" Grid.Column="1" Margin="314,112,766,0" Height="45" Width="45" VerticalAlignment="Top" Grid.RowSpan="2">
+            <SymbolIcon Symbol="Target"/>
+        </Viewbox>
+
+        <Button Grid.Row="2" Grid.Column="1" Margin="760,187,0,0" VerticalAlignment="Top" Height="90" Width="90" >
+            <Viewbox>
+                <SymbolIcon Symbol="AddFriend"/>
+            </Viewbox>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Margin="314,616,0,0" VerticalAlignment="Top" Height="90" Width="90" >
+            <Viewbox>
+                <SymbolIcon Symbol="Sync"/>
+            </Viewbox>
+        </Button>
+
+        <!--Botones superiores-->
+        <Grid Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Content="LoadOut" Style="{StaticResource TopButtons}"/>
+            <Button Grid.Column="1" Content="Profile" Style="{StaticResource TopButtons}"/>
+            <Button Grid.Column="2" Content="Ready" Style="{StaticResource TopButtons}" Background="Gold"/>
+            <Button Grid.Column="3" Content="Store" Style="{StaticResource TopButtons}"/>
+            <Button Grid.Column="4" Content="BattlePass" Style="{StaticResource TopButtons}"/>
+        </Grid>
+
+        <!--Panel con las monedas-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3.7*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="1" Grid.RowSpan="2"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="5" BorderBrush="Wheat" Background="DarkSlateGray"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Image Source="./Assets/Coin.png" Width="40" Margin="15, 10, 0, 0"></Image>
+                <TextBlock Text="1530" Margin="10, 10, 0, 0" FontSize="30" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <Image Source="./Assets/Gem.png" Width="40" Margin="15, 0, 0, 10"></Image>
+                <TextBlock Text="565" Margin="10, 0, 0, 10" FontSize="30" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+
+        <!--CommandBar inferior-->
+        <StackPanel Grid.Row="3" Grid.Column="2" Background="DarkSlateGray" BorderBrush="Wheat" BorderThickness="5" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+            <Button VerticalAlignment="Stretch">
+                <Viewbox>
+                    <SymbolIcon Symbol="Globe"/>
+                </Viewbox>
+            </Button>
+            <Button VerticalAlignment="Stretch">
+                <Viewbox>
+                    <SymbolIcon Symbol="People"/>
+                </Viewbox>
+            </Button>
+            <Button VerticalAlignment="Stretch">
+                <Viewbox>
+                    <SymbolIcon Symbol="Setting"/>
+                </Viewbox>
+            </Button>
+            <Button VerticalAlignment="Stretch">
+                <Viewbox>
+                    <SymbolIcon Symbol="Clear"/>
+                </Viewbox>
+            </Button>
+        </StackPanel>
+
+        <!--Input de la caja del dialogo del chat-->
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="1" FontSize="32" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" InputScope="Chat" Background="DarkSlateGray"/>
+            <Button Grid.Column="2" VerticalAlignment="Stretch">
+                <Viewbox>
+                    <SymbolIcon Symbol="Send"/>
+                </Viewbox>
+            </Button>
+            <Button VerticalAlignment="Stretch">
+                <Viewbox>
+                    <SymbolIcon Symbol="More"/>
+                </Viewbox>
+            </Button>
+        </Grid>
+
+        <!--Caja del chat y lista de misiones a completar-->
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ListView VerticalAlignment="Bottom">
+                <TextBlock Text="Challenges" FontSize="32" Margin="0,0,0,10"/>
+                <StackPanel>
+                    <TextBlock Text="Eliminate 15 enemies    13/15" FontSize="20"/>
+                    <ProgressBar Value="13" Maximum="15" Margin="0,10,0,10"/>
+                </StackPanel>
+            </ListView>
+
+            <Border Grid.Row="1" Background="#55000000"/>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Visible"  HorizontalScrollBarVisibility="Disabled" VerticalScrollMode="Enabled" HorizontalScrollMode="Disabled">
+                <TextBlock  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="WrapWholeWords"  
+                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non neque nibh. Maecenas non finibus lacus. Vivamus a eros a eros pharetra molestie elementum at ligula. Praesent pulvinar malesuada tincidunt. Curabitur molestie feugiat condimentum. Curabitur nibh dolor, dictum sed dui sit amet, convallis gravida ante. Etiam sed nibh vel ipsum bibendum porta sed vel nisl. Quisque hendrerit magna et erat mattis, a ultrices sapien imperdiet. Donec scelerisque tempor nunc, nec volutpat mauris tempus quis.
+
+Proin eu leo non velit maximus semper vel ut felis. Suspendisse potenti. Ut mollis pulvinar magna et cursus. Vestibulum gravida efficitur justo, at scelerisque est laoreet sed. Mauris finibus faucibus orci. Phasellus metus nisi, dapibus sed sapien ac, congue ultricies urna. Suspendisse potenti. Etiam purus magna, gravida sed pulvinar at, viverra sed orci. Vivamus fermentum euismod nunc accumsan congue. Etiam nec purus egestas, ullamcorper eros vel, dignissim justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus consectetur imperdiet vehicula. Curabitur vel aliquet risus, eu porta massa. Phasellus imperdiet, risus non aliquet dictum, velit massa tincidunt velit, non venenatis magna turpis sit amet eros. Curabitur sodales ligula eget lobortis laoreet."/>
+
+            </ScrollViewer>
+        </Grid>
+
+        <!--Lista de amigos-->
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.2*"/>
+            </Grid.RowDefinitions>
+            <ListView Grid.Column="1" Grid.Row="1" Background="DarkSlateGray" BorderThickness="5" BorderBrush="Black">
+                <TextBlock Text="Friends" FontSize="32"/>
+                <StackPanel Orientation="Horizontal">
+                    <Viewbox Width="30" Height="30">
+                        <SymbolIcon Symbol="Contact"/>
+                    </Viewbox>
+                    <TextBlock Text="Player2" FontSize="20" Margin="10, 0, 0, 0"/>
+                </StackPanel>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

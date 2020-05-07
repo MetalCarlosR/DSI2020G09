@@ -1,0 +1,90 @@
+﻿<Page
+    x:Class="ProyectoDSI.HeaderExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProyectoDSI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Background>
+        <AcrylicBrush TintColor="#CC70C7DA"/>
+    </Page.Background>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2.8*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!--Go Back Button-->
+            <Button Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#33020404">
+                <Viewbox>
+                    <SymbolIcon Symbol="Back"/>
+                </Viewbox>
+            </Button>
+
+            <!--Level Part-->
+            <Grid Grid.Column="2" Margin="0, 0, 50, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.8*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Level 3" FontSize="32" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <ProgressBar Value="124" Maximum="150" Grid.Column="1" VerticalAlignment="Bottom" Height="20"/>
+                <TextBlock Text="124 / 150" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" FontSize="18"/>
+            </Grid>
+
+            <!--Coins Part-->
+            <Grid Grid.Column="1" Margin="0, 0, 50, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Background="#33020404" BorderBrush="Black" BorderThickness="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="./Assets/Coin.png" Width="50" Height="50"/>
+                        <TextBlock Grid.Column="1" Text="1530" FontSize="32" VerticalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="1" Background="#33020404" BorderBrush="Black" BorderThickness="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="./Assets/Gem.png" Width="50" Height="50"/>
+                        <TextBlock Grid.Column="1" Text="565" FontSize="32" VerticalAlignment="Center"/>
+                    </Grid>
+                </Border>
+            </Grid>
+            
+            <!--User Part-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Stretch="Uniform">
+                    <SymbolIcon Symbol="Contact"/>
+                </Viewbox>
+                <TextBlock Text="Player1" Grid.Column="1" FontSize="32" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
