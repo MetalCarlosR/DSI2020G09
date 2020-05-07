@@ -28,7 +28,7 @@ namespace MadRacing
     /// <summary>
     /// Página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class LoadOut : Page
     {
         private readonly ObservableCollection<VUpgrades> upgradesList = new ObservableCollection<VUpgrades>();
         private readonly ObservableCollection<VCharacters> charactersList = new ObservableCollection<VCharacters>();
@@ -40,7 +40,7 @@ namespace MadRacing
             return upgradesList;
         }
 
-        public MainPage()
+        public LoadOut()
         {
             this.InitializeComponent();
         }
