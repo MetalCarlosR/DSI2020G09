@@ -45,7 +45,7 @@ namespace ProyectoDSI
 
         private void GotoLoadout(object sender, RoutedEventArgs e)
         {
-            //this.Frame.Navigate(typeof());
+            this.Frame.Navigate(typeof(LoadOut));
         }
 
         private void GoToSettings(object sender, RoutedEventArgs e)
