@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
-namespace MadRacing
+namespace ProyectoDSI
 {
     public class Character
     {
