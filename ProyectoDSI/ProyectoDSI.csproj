@@ -119,11 +119,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Game.xaml.cs">
+      <DependentUpon>Game.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HeaderExample.xaml.cs">
       <DependentUpon>HeaderExample.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.xaml.cs">
+      <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -133,11 +139,22 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Barra1.png" />
+    <Content Include="Assets\Barra2.png" />
+    <Content Include="Assets\Barra3.png" />
     <Content Include="Assets\CarRender.png" />
     <Content Include="Assets\Character.png" />
     <Content Include="Assets\Coin.png" />
     <Content Include="Assets\Fondo.jpg" />
     <Content Include="Assets\Gem.png" />
+    <Content Include="Assets\HealthBar.png" />
+    <Content Include="Assets\icon.png" />
+    <Content Include="Assets\icon2.png" />
+    <Content Include="Assets\Kara_TOKEN.png" />
+    <Content Include="Assets\minimap.png" />
+    <Content Include="Assets\Position.png" />
+    <Content Include="Assets\RevolverheldUltimative.png" />
+    <Content Include="Assets\Token1.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -152,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Game.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HeaderExample.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,6 +180,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Profile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
