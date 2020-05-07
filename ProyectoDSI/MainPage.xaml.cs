@@ -26,5 +26,15 @@ namespace ProyectoDSI
         {
             this.InitializeComponent();
         }
+
+        private void GoToSettings(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Settings));
+        }
+
+        private void GoToBattlepass(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(BattlePass));
+        }
     }
 }
