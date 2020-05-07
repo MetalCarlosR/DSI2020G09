@@ -83,7 +83,7 @@
             <Button Grid.Column="1" Content="Profile" Style="{StaticResource TopButtons}"/>
             <Button Grid.Column="2" Content="Ready" Style="{StaticResource TopButtons}" Background="Gold"/>
             <Button Grid.Column="3" Content="Store" Style="{StaticResource TopButtons}"/>
-            <Button Grid.Column="4" Content="BattlePass" Style="{StaticResource TopButtons}" Click="GoToBattlepass"/>
+            <Button Grid.Column="4" Content="BattlePass" Style="{StaticResource TopButtons}"/>
         </Grid>
 
         <!--Panel con las monedas-->
@@ -119,7 +119,7 @@
                     <SymbolIcon Symbol="People"/>
                 </Viewbox>
             </Button>
-            <Button VerticalAlignment="Stretch" Click="GoToSettings" >
+            <Button VerticalAlignment="Stretch">
                 <Viewbox>
                     <SymbolIcon Symbol="Setting"/>
                 </Viewbox>
