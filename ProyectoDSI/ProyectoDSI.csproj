@@ -122,8 +122,12 @@
     <Compile Include="BattlePass.xaml.cs">
       <DependentUpon>BattlePass.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Characters.cs" />
     <Compile Include="HeaderExample.xaml.cs">
       <DependentUpon>HeaderExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoadOut.xaml.cs">
+      <DependentUpon>LoadOut.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -132,6 +136,10 @@
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Store.xaml.cs">
+      <DependentUpon>Store.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Upgrades.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -139,9 +147,11 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Car.png" />
     <Content Include="Assets\CarRender.png" />
     <Content Include="Assets\Character.png" />
     <Content Include="Assets\Coin.png" />
+    <Content Include="Assets\Driver.png" />
     <Content Include="Assets\Fondo.jpg" />
     <Content Include="Assets\Gem.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -166,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LoadOut.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -173,6 +187,10 @@
     <Page Include="Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+	</Page>
+    <Page Include="Store.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
