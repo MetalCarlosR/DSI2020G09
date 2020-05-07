@@ -39,7 +39,7 @@
                     Grid.Column="3"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    Background="#33020404">
+                    Background="#33020404" Click="GoBack">
                 <Viewbox>
                     <SymbolIcon Symbol="Back"/>
                 </Viewbox>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,36 @@ namespace ProyectoDSI
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void GoToBattlePass(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(BattlePass));
+        }
+
+        private void GoToStore(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Store));
+        }
+
+        private void GoToProfile(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Profile));
+        }
+
+        private void GotoLoadout(object sender, RoutedEventArgs e)
+        {
+            //this.Frame.Navigate(typeof());
+        }
+
+        private void GoToSettings(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Settings));
+        }
+
+        private void GoToGame(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Game));
         }
     }
 }

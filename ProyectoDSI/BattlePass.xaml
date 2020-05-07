@@ -1,0 +1,184 @@
+﻿<Page
+    x:Class="ProyectoDSI.BattlePass"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProyectoDSI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2.8*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Go Back Button-->
+            <Button Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#33020404" Click="GoBack">
+                <Viewbox>
+                    <SymbolIcon Symbol="Back"/>
+                </Viewbox>
+            </Button>
+
+            <!--Level Part-->
+            <Grid Grid.Column="2" Margin="0, 0, 50, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.8*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Level 3" FontSize="32" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <ProgressBar Value="124" Maximum="150" Grid.Column="1" VerticalAlignment="Bottom" Height="20"/>
+                <TextBlock Text="124 / 150" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" FontSize="18"/>
+            </Grid>
+
+            <!--Coins Part-->
+            <Grid Grid.Column="1" Margin="0, 0, 50, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Background="#33020404" BorderBrush="Black" BorderThickness="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="./Assets/Coin.png" Width="50" Height="50"/>
+                        <TextBlock Grid.Column="1" Text="1530" FontSize="32" VerticalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="1" Background="#33020404" BorderBrush="Black" BorderThickness="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="./Assets/Gem.png" Width="50" Height="50"/>
+                        <TextBlock Grid.Column="1" Text="565" FontSize="32" VerticalAlignment="Center"/>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!--User Part-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Stretch="Uniform">
+                    <SymbolIcon Symbol="Contact"/>
+                </Viewbox>
+                <TextBlock Text="Player1" Grid.Column="1" FontSize="32" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="0.5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Background="#ffff44" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <TextBlock FontSize="24">Daily Challenges</TextBlock>
+                </Button>
+                <Button Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <TextBlock FontSize="24">Weekly Challenges</TextBlock>
+                </Button>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">Play 1 Game</TextBlock>
+                <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">Drive 10 km</TextBlock>
+                <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">Kill 10 players</TextBlock>
+                <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">Get top 3 in 1 game</TextBlock>
+
+                <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">1/7</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">7/10</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">10/10</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">1/1</TextBlock>
+                <Border Grid.Row="1" Grid.RowSpan="10" Grid.ColumnSpan="2" BorderThickness="4" BorderBrush="Gray"></Border>
+
+            </Grid>
+            <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.4*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"> Regular</TextBlock>
+                <Border Grid.Row="2" Grid.ColumnSpan="10" Background="#ffff44"></Border>
+                <Border Grid.Row="1" Grid.ColumnSpan="10" Background="LightGray"></Border>
+                <Border Grid.Row="0" Grid.ColumnSpan="10" Grid.Column="1" Background="LightGray"></Border>
+
+                <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"> BatllePass</TextBlock>
+
+                <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"> 1</TextBlock>
+                <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"> 2</TextBlock>
+                <TextBlock Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"> 3</TextBlock>
+                <TextBlock Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"> 4</TextBlock>
+                <TextBlock Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center"> 5</TextBlock>
+                <TextBlock Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center"> 6</TextBlock>
+                <TextBlock Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center"> 7</TextBlock>
+                <TextBlock Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center"> 8</TextBlock>
+                <TextBlock Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center"> 9</TextBlock>
+
+                <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"> Character</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
+
+                <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"> Voice</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center"> Grafitti</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center"> Voice</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
+
+
+
+            </Grid>
+            <Canvas Grid.Column="1">
+                <Image  Source="/Assets/cochewapo.png" Height="583" Width="740" ></Image>
+            </Canvas>
+        </Grid>
+
+    </Grid>
+</Page>

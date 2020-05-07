@@ -26,7 +26,7 @@
             </Grid.ColumnDefinitions>
 
             <!--Go Back Button-->
-            <Button Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#33020404">
+            <Button Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#33020404" Click="GoBack">
                 <Viewbox>
                     <SymbolIcon Symbol="Back"/>
                 </Viewbox>

@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="ProyectoDSI.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProyectoDSI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="0.4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="0">
+                <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="General" Grid.Row="0" FontSize="32"></TextBlock>
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="1">
+                <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Video" Grid.Row="1" FontSize="32"></TextBlock>
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#ffff44" Grid.Row="2">
+                <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Audio" Grid.Row="2" FontSize="32"></TextBlock>
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="3">
+                <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Controls" Grid.Row="3" FontSize="32"></TextBlock>
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="4">
+                <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Accesibility" Grid.Row="4" FontSize="32"></TextBlock>
+            </Button>
+        </Grid>
+        <Button Grid.Column="3" HorizontalAlignment="right" VerticalAlignment="top" Background="#33020404" Width="120" Click="GoBack">
+            <Viewbox>
+                <SymbolIcon Symbol="Back"/>
+            </Viewbox>
+        </Button>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Text="Master Volume" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            <Slider Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Value="50" Minimum="0" Maximum="100" Width="350"></Slider>
+
+            <TextBlock Grid.Column="0" Grid.Row="1" Text="Music Volume" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            <Slider Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Value="50" Minimum="0" Maximum="100" Width="350"></Slider>
+
+            <TextBlock Grid.Column="0" Grid.Row="2" Text="Fx Volume" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            <Slider Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Value="50" Minimum="0" Maximum="100" Width="350"></Slider>
+
+            <TextBlock Grid.Column="0" Grid.Row="3" Text="Voices Volume" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            <Slider Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Value="50" Minimum="0" Maximum="100" Width="350"></Slider>
+
+            <TextBlock Grid.Column="0" Grid.Row="4" Text="Voice Language" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            <DropDownButton Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200"></DropDownButton>
+        </Grid>
+
+    </Grid>
+</Page>

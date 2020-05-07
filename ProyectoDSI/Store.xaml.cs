@@ -50,5 +50,10 @@ namespace ProyectoDSI
                     break;
             }
         }
+
+        private void GoBack(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
     }
 }
