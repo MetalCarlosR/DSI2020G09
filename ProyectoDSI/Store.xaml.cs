@@ -48,6 +48,11 @@ namespace ProyectoDSI
             CharacterOptions.Visibility = Visibility.Collapsed;
             SkinsOptions.Visibility = Visibility.Collapsed;
             MadOptions.Visibility = Visibility.Collapsed;
+
+            Characters.Background = new SolidColorBrush(Colors.CadetBlue);
+            Skins.Background = new SolidColorBrush(Colors.CadetBlue);
+            MadCoins.Background = new SolidColorBrush(Colors.CadetBlue);
+
             Button b = sender as Button;
             switch(b.Name)
             {
@@ -56,12 +61,15 @@ namespace ProyectoDSI
                     break;
                 case "Characters":
                     CharacterOptions.Visibility = Visibility.Visible;
+                    Characters.Background = new SolidColorBrush(Colors.MidnightBlue);
                     break;
                 case "Skins":
                     SkinsOptions.Visibility = Visibility.Visible;
+                    Skins.Background = new SolidColorBrush(Colors.MidnightBlue);
                     break;
                 case "MadCoins":
                     MadOptions.Visibility = Visibility.Visible;
+                    MadCoins.Background = new SolidColorBrush(Colors.MidnightBlue);
                     break;
             }
         }
@@ -75,13 +83,13 @@ namespace ProyectoDSI
         {
             string button = lastClicked.Name;
             StoreItem bought = storeItems.Find(x => x.name == button);
+
             money.Text = (int.Parse(money.Text.ToString()) - bought.money).ToString();
             gems.Text = (int.Parse(gems.Text.ToString()) - bought.gems).ToString();
             items.buyItem(bought);
+
             lastClicked.Opacity = 0.75;
             BuyOption.Visibility = Visibility.Collapsed;
-
-            if (Items.getBoughtItems() != null) Player.Text = "Hay " + Items.getBoughtItems().Count() + " elems comprados";
         }
 
         private void RejectBuy(object sender, RoutedEventArgs e)

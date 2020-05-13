@@ -43,6 +43,18 @@ namespace ProyectoDSI
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            for (int i = 0; i < Items.boughtItems_.Count(); i++)
+            {
+                switch(Items.boughtItems_[i].type)
+                {
+                    case StoreItem.Type.character:
+                        ShoesOptions.Items.Insert(ShoesOptions.Items.Count(), Items.boughtItems_[i].name);
+                        break;
+                    case StoreItem.Type.skin:
+                        SunglassesOptions.Items.Insert(ShoesOptions.Items.Count(), Items.boughtItems_[i].name);
+                        break;
+                }
+            }
         }
 
         private void ChangeSelection(object sender, PointerRoutedEventArgs e)

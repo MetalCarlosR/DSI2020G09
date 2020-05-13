@@ -8,12 +8,14 @@ namespace ProyectoDSI
 {
     public class StoreItem
     {
+        public enum Type { character, skin};
         public int id;
         public string name;
         public string image;
         public int money;
-        public int gems = 0;
+        public int gems;
         public bool bought;
+        public Type type;
 
         public StoreItem() { }
         
@@ -31,7 +33,8 @@ namespace ProyectoDSI
                 image = "Assets/Character1.png",
                 money = 50,
                 gems= 0,
-                bought = false
+                bought = false,
+                type = StoreItem.Type.character
              },
 
             new StoreItem()
@@ -41,7 +44,8 @@ namespace ProyectoDSI
                 image = "Assets/Character2.png",
                 money = 50,
                 gems= 0,
-                bought = false
+                bought = false,
+                type = StoreItem.Type.character
              },
 
             new StoreItem()
@@ -51,7 +55,8 @@ namespace ProyectoDSI
                 image = "Assets/Character3.png",
                 money = 50,
                 gems= 0,
-                bought = false
+                bought = false,
+                type = StoreItem.Type.character
              },
 
             new StoreItem()
@@ -61,7 +66,8 @@ namespace ProyectoDSI
                 image = "Assets/CharactersBattlePass.png",
                 money = 50,
                 gems= 0,
-                bought = false
+                bought = false,
+                type = StoreItem.Type.character
              },
 
             new StoreItem()
@@ -71,7 +77,8 @@ namespace ProyectoDSI
                 image = "Assets/Skin1.png",
                 money = 0,
                 gems = 3,
-                bought = false
+                bought = false,
+                type = StoreItem.Type.skin
              },
 
             new StoreItem()
@@ -81,7 +88,8 @@ namespace ProyectoDSI
                 image = "Assets/Skin2.png",
                 money = 0,
                 gems = 3,
-                bought = false
+                bought = false,
+                type = StoreItem.Type.skin
              },
 
             new StoreItem()
@@ -91,7 +99,8 @@ namespace ProyectoDSI
                 image = "Assets/Skin3.png",
                 money = 0,
                 gems = 3,
-                bought = false
+                bought = false,
+                type = StoreItem.Type.skin
              },
 
             new StoreItem()
@@ -101,7 +110,8 @@ namespace ProyectoDSI
                 image = "Assets/Skin4.png",
                 money = 0,
                 gems = 3,
-                bought = false
+                bought = false,
+                type = StoreItem.Type.skin
              },
 
             new StoreItem()
@@ -111,7 +121,8 @@ namespace ProyectoDSI
                 image = "Assets/SkinBattlePass.png",
                 money = 0,
                 gems = 3,
-                bought = false
+                bought = false,
+                type = StoreItem.Type.skin
              }
         };
             if (boughtItems_ == null) 
