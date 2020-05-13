@@ -159,7 +159,6 @@
             FontSize="50"
             Foreground="Black"
             BorderThickness="3" Click="WindowClicked"
-            
             />
         <Button x:Name="Skins"
             Grid.Row="1"
