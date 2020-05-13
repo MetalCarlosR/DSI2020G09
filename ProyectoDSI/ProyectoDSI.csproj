@@ -122,7 +122,6 @@
     <Compile Include="BattlePass.xaml.cs">
       <DependentUpon>BattlePass.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Characters.cs" />
     <Compile Include="Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
     </Compile>
@@ -143,7 +142,7 @@
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Store.xaml.cs" />
-    <Compile Include="Upgrades.cs" />
+    <Compile Include="StoreElements.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -156,6 +155,10 @@
     <Content Include="Assets\Barra3.png" />
     <Content Include="Assets\CarRender.png" />
     <Content Include="Assets\Character.png" />
+    <Content Include="Assets\Character1.png" />
+    <Content Include="Assets\Character2.png" />
+    <Content Include="Assets\Character3.png" />
+    <Content Include="Assets\CharactersBattlePass.png" />
     <Content Include="Assets\Coin.png" />
     <Content Include="Assets\Fondo.jpg" />
     <Content Include="Assets\Gem.png" />
@@ -166,6 +169,10 @@
     <Content Include="Assets\minimap.png" />
     <Content Include="Assets\Position.png" />
     <Content Include="Assets\RevolverheldUltimative.png" />
+    <Content Include="Assets\Skin1.png" />
+    <Content Include="Assets\Skin2.png" />
+    <Content Include="Assets\Skin3.png" />
+    <Content Include="Assets\Skin4.png" />
     <Content Include="Assets\Token1.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

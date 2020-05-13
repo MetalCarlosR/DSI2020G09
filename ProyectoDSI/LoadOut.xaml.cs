@@ -30,15 +30,10 @@ namespace ProyectoDSI
     /// </summary>
     public sealed partial class LoadOut : Page
     {
-        private readonly ObservableCollection<VUpgrades> upgradesList = new ObservableCollection<VUpgrades>();
-        private readonly ObservableCollection<VCharacters> charactersList = new ObservableCollection<VCharacters>();
+        public ObservableCollection<StoreItem> itemsList { get; } = new ObservableCollection<StoreItem>();
 
         bool upgradesMenuInUse = false;
         Button lastClicked = null;
-        public ObservableCollection<VUpgrades> GetUpgradesList()
-        {
-            return upgradesList;
-        }
 
         public LoadOut()
         {
@@ -47,23 +42,6 @@ namespace ProyectoDSI
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (upgradesList != null)
-            {
-                foreach (Upgrade up in Upgrades.GetUpgrades())
-                {
-                    VUpgrades up_ = new VUpgrades(up);
-                    upgradesList.Add(up_);
-                    up_.CCImg.Visibility = Visibility.Visible;
-
-                }
-                foreach (Character up in Characters.GetCharacters())
-                {
-                    VCharacters up_ = new VCharacters(up);
-                    charactersList.Add(up_);
-                    up_.CCImg.Visibility = Visibility.Visible;
-
-                }
-            }
             base.OnNavigatedTo(e);
         }
 

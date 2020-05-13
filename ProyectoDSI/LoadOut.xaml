@@ -10,8 +10,8 @@
 
     <Page.Resources>
 
-        <DataTemplate x:Key="ListViewUpgrades"
-                      x:DataType="local:VUpgrades">
+        <DataTemplate x:Key="ListViewUpgrades">
+            <!--x:DataType="local:VUpgrades">-->
             <Grid Height="40" Width="300" Margin="8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="20"/>
@@ -22,8 +22,8 @@
             </Grid>
 
         </DataTemplate>
-        <DataTemplate x:Key="ListViewCharacters"
-                      x:DataType="local:VCharacters">
+        <DataTemplate x:Key="ListViewCharacters">
+            <!--x:DataType="local:VCharacters">-->
 
             <Grid Height="40" Width="300" Margin="8" >
                 <Grid.ColumnDefinitions>
@@ -269,8 +269,8 @@
                   Grid.Row="3"
                   Grid.Column="0"
                   Background="BlueViolet"
-                  SelectionMode="Single"
-                  ItemsSource="{x:Bind charactersList}">
+                  SelectionMode="Single">
+            <!--ItemsSource="{x:Bind charactersList}">-->
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>
