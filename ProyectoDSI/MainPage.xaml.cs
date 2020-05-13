@@ -4,6 +4,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -56,6 +57,84 @@ namespace ProyectoDSI
         private void GoToGame(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Game));
+        }
+
+        private void ButtonShowChat_Click(object sender, RoutedEventArgs e)
+        {
+            if (ChatBox.Visibility == Windows.UI.Xaml.Visibility.Collapsed)
+            {
+                ChatBox.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                Chat.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
+            else
+            {
+                ChatBox.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                Chat.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+        }
+
+        private void FriendsButtonPanel_Click(object sender, RoutedEventArgs e)
+        {
+            FriendsPanel.SelectedItem = null;
+            if (FriendsPanel.Visibility == Windows.UI.Xaml.Visibility.Collapsed)
+            {
+                FriendsPanel.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
+            else
+            {
+                FriendsPanel.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+        }
+
+        private void PushChat()
+        {
+            if (ChatInput.Text != "")
+            {
+                if (ChatBox.Visibility == Windows.UI.Xaml.Visibility.Collapsed)
+                {
+                    ChatBox.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                    Chat.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                }
+                ChatText.Text += "\r\n" + "Player 1:" + " " + ChatInput.Text;
+                ChatInput.Text = "";
+            }
+        }
+
+        private void ChatSendButton_Click(object sender, RoutedEventArgs e)
+        {
+            PushChat();
+        }
+
+        private void ChatInput_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+                PushChat();
+        }
+
+        private void ChatInput_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (ChatBox.Visibility == Windows.UI.Xaml.Visibility.Collapsed)
+            {
+                ChatBox.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                Chat.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
+        }
+
+        private void OpenPopUp(object sender, RoutedEventArgs e)
+        {
+            if (ExitPopUp.Visibility == Windows.UI.Xaml.Visibility.Collapsed)
+            {
+                ExitPopUp.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
+            else
+            {
+                ExitPopUp.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+        }
+
+        private void CloseApp(object sender, RoutedEventArgs e)
+        {
+            CoreApplication.Exit();
         }
     }
 }
