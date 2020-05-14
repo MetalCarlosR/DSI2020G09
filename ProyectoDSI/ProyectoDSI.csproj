@@ -154,6 +154,7 @@
     <Content Include="Assets\Barra1.png" />
     <Content Include="Assets\Barra2.png" />
     <Content Include="Assets\Barra3.png" />
+    <Content Include="Assets\BlackPortrait.png" />
     <Content Include="Assets\CarRender.png" />
     <Content Include="Assets\Character.png" />
     <Content Include="Assets\Character1.png" />
@@ -169,6 +170,9 @@
     <Content Include="Assets\icon2.png" />
     <Content Include="Assets\Kara_TOKEN.png" />
     <Content Include="Assets\minimap.png" />
+    <Content Include="Assets\Portrait1.png" />
+    <Content Include="Assets\Portrait2.png" />
+    <Content Include="Assets\Portrait3.png" />
     <Content Include="Assets\Position.png" />
     <Content Include="Assets\RevolverheldUltimative.png" />
     <Content Include="Assets\Skin1.png" />

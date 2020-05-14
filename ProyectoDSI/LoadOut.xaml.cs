@@ -53,10 +53,9 @@ namespace ProyectoDSI
                 switch(Items.boughtItems_[i].type)
                 {
                     case StoreItem.Type.character:
-                    ShoesOptions.Items.Insert(ShoesOptions.Items.Count(), Items.boughtItems_[i].name);
                     break;
                     case StoreItem.Type.skin:
-                    SunglassesOptions.Items.Insert(ShoesOptions.Items.Count(), Items.boughtItems_[i].name);
+                    SunglassesOptions.Items.Insert(SunglassesOptions.Items.Count(), Items.boughtItems_[i].name);
                     break;
                 }
         }
@@ -126,6 +125,11 @@ namespace ProyectoDSI
             Button button = sender as Button;
             ChangeSpacing(sender, e);
             ShowObjects(button.Name);
+        }
+
+        private void ChangeCharacter(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

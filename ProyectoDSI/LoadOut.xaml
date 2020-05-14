@@ -40,7 +40,8 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="15"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -265,19 +266,53 @@
                    
                    HorizontalAlignment="Stretch" 
                    VerticalAlignment="Stretch"/>
+        <Grid Grid.Row="3"
+              Grid.Column="0"
+              Grid.ColumnSpan="3">
 
-        <ListView x:Name="CharactersListView"
-                  Grid.Row="3"
-                  Grid.Column="0"
-                  Background="BlueViolet"
-                  SelectionMode="Single">
-            <!--ItemsSource="{x:Bind charactersList}">-->
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Character1"
+                   Grid.Column="0"
+                    Click="ChangeCharacter">
 
-        </ListView>
+                <Image Source="Assets/Portrait1.png" 
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Center"
+                   />
+            </Button>
+            <Button x:Name="Character2"
+                    Grid.Column="1"
+                    Click="ChangeCharacter">
+
+                <Image Source="Assets/Portrait2.png"
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"
+                   />
+            </Button>
+            <Button x:Name="Character3"
+                   Grid.Column="2"
+                    Click="ChangeCharacter">
+
+                <Image Source="Assets/Portrait3.png" 
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"
+                   />
+            </Button>
+            <Button x:Name="Character4"
+                   Grid.Column="3"
+                    Click="ChangeCharacter">
+
+                <Image Source="Assets/BlackPortrait.png" 
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"
+                   />
+            </Button>
+        </Grid>
+        
     </Grid>
 </Page>
