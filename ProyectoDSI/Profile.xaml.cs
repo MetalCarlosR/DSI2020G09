@@ -22,18 +22,28 @@ namespace ProyectoDSI
     /// </summary>
     public sealed partial class Profile : Page
     {
+
+        int Gold, Gems;
         public Profile()
         {
             this.InitializeComponent();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            Gold = Player.gold;
+            Gems = Player.gems;
+            
+        }
+
         private void GoBack(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage));
+            this.Frame.Navigate(Frame.BackStack.Last().SourcePageType);
         }
 
 
-        
+
         private void WindowClicked(object sender, RoutedEventArgs e)
         {
             OverviewPanel.Visibility = Visibility.Collapsed;

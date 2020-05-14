@@ -27,17 +27,12 @@ namespace ProyectoDSI
         public Game()
         {
             this.InitializeComponent();
+            Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
         }
 
-        private static bool IsEscButtonPressed()
+        private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs e)
         {
-            var EscState = Windows.UI.Core.CoreWindow.GetForCurrentThread().GetKeyState(Windows.System.VirtualKey.Escape);
-            return (EscState & Windows.UI.Core.CoreVirtualKeyStates.Down) == Windows.UI.Core.CoreVirtualKeyStates.Down;
-        }
-
-        private void MenuKeyDown(object sender, KeyRoutedEventArgs e)
-        {
-            if (IsEscButtonPressed()) { 
+            if (e.VirtualKey == Windows.System.VirtualKey.Escape) { 
             
                 if (PauseMenu.Visibility == Visibility.Collapsed)
                 {

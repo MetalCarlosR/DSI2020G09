@@ -61,6 +61,11 @@ namespace ProyectoDSI
                 }
         }
 
+        private void GoBack(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(Frame.BackStack.Last().SourcePageType);
+        }
+
         private void ChangeSelection(object sender, PointerRoutedEventArgs e)
         {
             ImageSource aux = Back.Source;
