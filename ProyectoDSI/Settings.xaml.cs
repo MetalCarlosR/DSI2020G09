@@ -30,9 +30,15 @@ namespace ProyectoDSI
             this.InitializeComponent();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            
+        }
+
         private void GoBack(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage));
+            this.Frame.Navigate(Frame.BackStack.Last().SourcePageType);
         }
 
         private void GeneralButtonClick(object sender, RoutedEventArgs e)

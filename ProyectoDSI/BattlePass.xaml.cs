@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,6 +27,9 @@ namespace ProyectoDSI
         Dictionary<int, ImageSource> characters = new Dictionary<int, ImageSource>();
         Dictionary<int, ImageSource> skins = new Dictionary<int, ImageSource>();
         Dictionary<int, ImageSource> grafittis = new Dictionary<int, ImageSource>();
+        //This bools defines if we show daile or weekly chalenges
+        bool daily = true; //false means weekly
+
         public BattlePass()
         {
             this.InitializeComponent();
@@ -40,13 +44,14 @@ namespace ProyectoDSI
             skins.Add(3, new BitmapImage(new Uri("ms-appx:///Assets/Skin4.png", UriKind.Absolute)));
 
             grafittis.Add(0, new BitmapImage(new Uri("ms-appx:///Assets/Grafitti1.png", UriKind.Absolute)));
-
+            daily = true;
+            ShowChallenges();
 
         }
 
         private void GoBack(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage));
+            this.Frame.Navigate(Frame.BackStack.Last().SourcePageType);
         }
 
         private void ShowSkin(object sender, RoutedEventArgs e)
@@ -70,7 +75,46 @@ namespace ProyectoDSI
         private void ShowGrafitti(object sender, RoutedEventArgs e)
         {
             displayImage.Source = grafittis[0];
+        }
+        private void ShowChallenges()
+        {
+            List<Challenge> challengeList;
+            if (daily)
+                challengeList = Player.dailyChallenge;
+            else
+                challengeList = Player.weeklyChallenge;
 
+            challengeText0.Text = (challengeList[0]).message;
+            challengeText1.Text = (challengeList[1]).message;
+            challengeText2.Text = (challengeList[2]).message;
+            challengeText3.Text = (challengeList[3]).message;
+
+            challengeStatus0.Text = (challengeList[0]).actualValue + "/" +(challengeList[0]).maxValue;
+            challengeStatus1.Text = (challengeList[1]).actualValue + "/" +(challengeList[1]).maxValue;
+            challengeStatus2.Text = (challengeList[2]).actualValue + "/" +(challengeList[2]).maxValue;
+            challengeStatus3.Text = (challengeList[3]).actualValue + "/" +(challengeList[3]).maxValue;
+
+            challengeBorder0.Visibility = ((challengeList[0]).actualValue < (challengeList[0]).maxValue) ? Visibility.Collapsed : Visibility.Visible;
+            challengeBorder1.Visibility = ((challengeList[1]).actualValue < (challengeList[1]).maxValue) ? Visibility.Collapsed : Visibility.Visible;
+            challengeBorder2.Visibility = ((challengeList[2]).actualValue < (challengeList[2]).maxValue) ? Visibility.Collapsed : Visibility.Visible;
+            challengeBorder3.Visibility = ((challengeList[3]).actualValue < (challengeList[3]).maxValue) ? Visibility.Collapsed : Visibility.Visible;
+
+        }
+
+        private void ShowDailies(object sender, RoutedEventArgs e)
+        {
+            daily = true;
+            ((Button)sender).Background = (SolidColorBrush)Resources["yellowColor"];
+            weaklyButton.Background=(SolidColorBrush)Resources["grayColor"];
+            ShowChallenges();
+        }
+
+        private void showWeeklies(object sender, RoutedEventArgs e)
+        {
+            daily = false;
+            ((Button)sender).Background = (SolidColorBrush)Resources["yellowColor"];
+            dailyButton.Background = (SolidColorBrush)Resources["grayColor"];
+            ShowChallenges();
         }
     }
 }

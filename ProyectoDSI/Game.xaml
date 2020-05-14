@@ -23,7 +23,7 @@
         <Image Source="/Assets/Barra1.png" Height="72" Width="249" Canvas.Left="11" Canvas.Top="202" Margin="16,387,1655,621"></Image>
         <Image Source="/Assets/Barra2.png" Height="72" Width="249" Canvas.Left="11" Canvas.Top="356" Margin="16,315,1655,693"></Image>
         <Image Source="/Assets/Barra3.png" Height="72" Width="249" Canvas.Left="10" Canvas.Top="279" Margin="21,238,1650,770"></Image>
-        <Grid x:Name="PauseMenu" KeyDown="MenuKeyDown">
+        <Grid x:Name="PauseMenu" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition/>
