@@ -131,7 +131,7 @@
                     <SymbolIcon Symbol="Contact"
                                 Foreground="Black"/>
                 </Viewbox>
-                <TextBlock x:Name="Player" 
+                <TextBlock x:Name="playerText" 
                            Text="Player1"
                            Grid.Column="1"
                            FontSize="32"
@@ -182,7 +182,7 @@
             Foreground="Black" Click="WindowClicked"
             />
 
-        <Grid x:Name="FeaturedOptions" Visibility="Collapsed"
+        <Grid x:Name="FeaturedOptions" Visibility="Visible"
             Grid.Row="2"
             Grid.Column="1"
             Grid.ColumnSpan="4">
@@ -234,7 +234,7 @@
 
         </Grid>
 
-        <Grid x:Name="CharacterOptions" Visibility="Visible"
+        <Grid x:Name="CharacterOptions" Visibility="Collapsed"
             Grid.Row="2"
             Grid.Column="1"
             Grid.ColumnSpan="4">
@@ -259,7 +259,7 @@
             <Button x:Name="FeaturedCharacter" Grid.Row="1"
                            Grid.Column="7"
                            Grid.RowSpan="3" 
-                    Click="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/CharactersBattlePass.png" 
                        Stretch="UniformToFill"
                        HorizontalAlignment="Center">
@@ -269,7 +269,7 @@
             <Button x:Name="Character1" Grid.Row="1"
                            Grid.Column="1"
                            Grid.RowSpan="3" 
-                    Click="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/Character1.png" 
                        Stretch="UniformToFill" HorizontalAlignment="Center">
 
@@ -279,7 +279,7 @@
             <Button x:Name="Character2" Grid.Row="1"
                            Grid.Column="3"
                            Grid.RowSpan="3" 
-                    Click="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/Character2.png" 
                        Stretch="UniformToFill" HorizontalAlignment="Center">
 
@@ -288,7 +288,7 @@
 
             <Button x:Name="Character3" Grid.Row="1"
                            Grid.Column="5"
-                           Grid.RowSpan="3" Click="BuyCharacter">
+                           Grid.RowSpan="3" Click="BuyItem">
                 <Image Source="Assets/Character3.png" 
                        Stretch="UniformToFill"
                        HorizontalAlignment="Center">
@@ -324,7 +324,7 @@
                            Grid.Column="1"
                            Grid.ColumnSpan="3"
                     Background="CadetBlue"
-                    PointerPressed="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/Skin1.png" 
                        Stretch="UniformToFill" 
                        HorizontalAlignment="Center"
@@ -336,7 +336,7 @@
                     Grid.Row="3"
                     Grid.Column="3"
                     Background="BlueViolet"
-                    PointerPressed="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/Skin2.png" 
                        Stretch="UniformToFill" 
                        HorizontalAlignment="Center"
@@ -348,7 +348,7 @@
                     Grid.Row="5"
                     Grid.Column="1"
                     Background="BlueViolet"
-                    PointerPressed="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/Skin3.png" 
                        Stretch="UniformToFill" 
                        HorizontalAlignment="Center"
@@ -361,7 +361,7 @@
                            Grid.Column="5"
                            Grid.RowSpan="3"
                            Background="DarkSlateBlue"
-                    PointerPressed="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/Skin4.png" 
                        Stretch="UniformToFill" 
                        HorizontalAlignment="Center"

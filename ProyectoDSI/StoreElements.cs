@@ -22,9 +22,8 @@ namespace ProyectoDSI
     }
     class Items
     {
-        public Items() 
-        {
-            items_ = new List<StoreItem>()
+        public Items() { }
+        public static List<StoreItem> items_ = new List<StoreItem>()
         {
             new StoreItem()
             {
@@ -125,13 +124,11 @@ namespace ProyectoDSI
                 type = StoreItem.Type.skin
              }
         };
-            if (boughtItems_ == null) 
-                boughtItems_ = new List<StoreItem>();
-        }
-        public List<StoreItem> items_;
-        public static List<StoreItem> boughtItems_;
+        public static List<StoreItem> boughtItems_ = new List<StoreItem>();
         public static List<StoreItem> getBoughtItems() { return boughtItems_; }
 
-        public void buyItem(StoreItem item) { boughtItems_.Add(item); }
+        public static void buyItem(StoreItem item) { 
+            boughtItems_.Add(item); 
+            items_.Remove(item); }
     }
 }
