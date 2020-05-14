@@ -30,10 +30,11 @@ namespace ProyectoDSI
     /// </summary>
     public sealed partial class LoadOut : Page
     {
-        public ObservableCollection<StoreItem> itemsList { get; } = new ObservableCollection<StoreItem>();
 
         bool upgradesMenuInUse = false;
         Button lastClicked = null;
+        List<StoreItem> boughtItems = null;
+        Items items = null;
 
         public LoadOut()
         {
@@ -43,18 +44,23 @@ namespace ProyectoDSI
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            //for (int i = 0; i < Items.boughtItems_.Count(); i++)
-            //{
-            //    switch(Items.boughtItems_[i].type)
-            //    {
-            //        case StoreItem.Type.character:
-            //            ShoesOptions.Items.Insert(ShoesOptions.Items.Count(), Items.boughtItems_[i].name);
-            //            break;
-            //        case StoreItem.Type.skin:
-            //            SunglassesOptions.Items.Insert(ShoesOptions.Items.Count(), Items.boughtItems_[i].name);
-            //            break;
-            //    }
-            //}
+            if (items == null)
+                items = new Items();
+            //que funciona bieeen
+
+            boughtItems = Items.boughtItems_;
+            for (int i = 0; i < Items.boughtItems_.Count(); i++)
+            
+            switch(Items.boughtItems_[i].type)
+            {
+            case StoreItem.Type.character:
+            ShoesOptions.Items.Insert(ShoesOptions.Items.Count(), Items.boughtItems_[i].name);
+            break;
+            case StoreItem.Type.skin:
+            SunglassesOptions.Items.Insert(ShoesOptions.Items.Count(), Items.boughtItems_[i].name);
+            break;
+            }
+            
         }
 
         private void ChangeSelection(object sender, PointerRoutedEventArgs e)
