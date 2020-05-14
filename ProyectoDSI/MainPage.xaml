@@ -123,11 +123,11 @@
                 <Border Grid.Column="1" Grid.RowSpan="2"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="5" BorderBrush="Wheat" Background="DarkSlateGray"/>
                 <StackPanel Grid.Column="1" Orientation="Horizontal">
                     <Image Source="./Assets/Coin.png" Width="40" Margin="15, 10, 0, 0"></Image>
-                    <TextBlock Text="1530" Margin="10, 10, 0, 0" FontSize="30" VerticalAlignment="Center"/>
+                    <TextBlock Text="{x:Bind gold}" Margin="10, 10, 0, 0" FontSize="30" VerticalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
                     <Image Source="./Assets/Gem.png" Width="40" Margin="15, 0, 0, 10"></Image>
-                    <TextBlock Text="565" Margin="10, 0, 0, 10" FontSize="30" VerticalAlignment="Center"/>
+                    <TextBlock Text="{x:Bind gems}" Margin="10, 0, 0, 10" FontSize="30" VerticalAlignment="Center"/>
                 </StackPanel>
             </Grid>
 
@@ -192,11 +192,7 @@
 
                 <Border x:Name="ChatBox" Visibility="Collapsed" Grid.Row="1" Background="#55000000"/>
                 <ScrollViewer x:Name="Chat" Visibility="Collapsed" Grid.Row="1" VerticalScrollBarVisibility="Visible"  HorizontalScrollBarVisibility="Disabled" VerticalScrollMode="Enabled" HorizontalScrollMode="Disabled">
-                    <TextBlock x:Name="ChatText" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="WrapWholeWords">
-                        Player 2: u know if hes coming?
-                        <LineBreak/>
-                        Player 1: i dunno
-                    </TextBlock>
+                    <TextBlock x:Name="ChatText" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="WrapWholeWords"/>
                 </ScrollViewer>
             </Grid>
 

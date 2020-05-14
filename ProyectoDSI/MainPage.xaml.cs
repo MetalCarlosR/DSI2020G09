@@ -26,6 +26,9 @@ namespace ProyectoDSI
     public sealed partial class MainPage : Page
     {
         public ObservableCollection<Friend> friendsList { get; } = new ObservableCollection<Friend>();
+        int gold;
+        int gems;
+        static string chat = "Player 2: u know if hes coming?\r\nPlayer 1: i dunno";
 
         public MainPage()
         {
@@ -39,6 +42,9 @@ namespace ProyectoDSI
             {
                 friendsList.Add(f);
             }
+            gold = Player.gold;
+            gems = Player.gems;
+            ChatText.Text = chat;
         }
 
         private void GoToBattlePass(object sender, RoutedEventArgs e)
@@ -109,6 +115,7 @@ namespace ProyectoDSI
                 }
                 ChatText.Text += "\r\n" + "Player 1:" + " " + ChatInput.Text;
                 ChatInput.Text = "";
+                chat = ChatText.Text;
             }
         }
 

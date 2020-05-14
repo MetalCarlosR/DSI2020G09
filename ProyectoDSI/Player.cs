@@ -57,13 +57,13 @@ namespace ProyectoDSI
     {
         public Player() { }
 
-        int gold { get; set; } = 1530;
-        int gems { get; set; } = 565;
+        public static int gold { get; set; } = 1530;
+        public static int gems { get; set; } = 565;
 
-        public void addGold(int g) { gold += g; }
-        public void addGems(int g) { gems += g; }
+        public static void addGold(int g) { gold += g; }
+        public static void addGems(int g) { gems += g; }
 
-        public void removeGold(int g) { gold -= g; }
-        public void removeGems(int g) { gems -= g; }
+        public static void removeGold(int g) { gold -= g; }
+        public static void removeGems(int g) { gems -= g; }
     }
 }
