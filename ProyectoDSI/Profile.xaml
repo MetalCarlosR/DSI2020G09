@@ -65,7 +65,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Image Source="./Assets/Coin.png" Width="50" Height="50"/>
-                        <TextBlock Grid.Column="1" Text="1530" FontSize="32" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="{x:Bind Gold}" FontSize="32" VerticalAlignment="Center"/>
                     </Grid>
                 </Border>
                 <Border Grid.Column="1" Background="#33020404" BorderBrush="Black" BorderThickness="5">
@@ -75,7 +75,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Image Source="./Assets/Gem.png" Width="50" Height="50"/>
-                        <TextBlock Grid.Column="1" Text="565" FontSize="32" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="{x:Bind Gems}" FontSize="32" VerticalAlignment="Center"/>
                     </Grid>
                 </Border>
             </Grid>
@@ -155,32 +155,42 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Image Grid.RowSpan="4" Source="/Assets/Character1.png" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Opacity="0.25"/>
-
+                
                 <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="80" FontWeight="Bold">
                     Player1
                 </TextBlock>
-                <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="80" >
+                
+                <StackPanel Orientation="Vertical" Grid.Row="1">
+                    <TextBlock HorizontalAlignment="Center" FontSize="80" >
                     Level
-                </TextBlock>
-                <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="70" Foreground="Gold" >
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Center" FontSize="60" Foreground="Gold" >
                     3
-                </TextBlock>
-                <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="80" >
-                    Kills/Deaths/Assist
-                </TextBlock>
-                <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                    <TextBlock FontSize="70" Foreground="Gold"> 504</TextBlock>
-                    <TextBlock FontSize="70"> /</TextBlock>
-                    <TextBlock FontSize="70" Foreground="Red"> 87</TextBlock>
-                    <TextBlock FontSize="70"> /</TextBlock>
-                    <TextBlock FontSize="70" Foreground="Blue"> 703</TextBlock>
+                    </TextBlock>
                 </StackPanel>
-                <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="80" >
+
+                <StackPanel Orientation="Vertical" Grid.Row="2">
+                    <TextBlock HorizontalAlignment="Center" FontSize="80" >
+                    Kills/Deaths/Assist
+                    </TextBlock>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock FontSize="60" Foreground="GreenYellow"> 504</TextBlock>
+                        <TextBlock FontSize="60"> /</TextBlock>
+                        <TextBlock FontSize="60" Foreground="Red"> 87</TextBlock>
+                        <TextBlock FontSize="60"> /</TextBlock>
+                        <TextBlock FontSize="60" Foreground="Blue"> 703</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical" Grid.Row="3">
+                    <TextBlock HorizontalAlignment="Center" FontSize="80" >
                     Wins
-                </TextBlock>
-                <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="70" Foreground="Gold" >
-                   43
-                </TextBlock>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Center" FontSize="60" Foreground="Gold" >
+                    43
+                    </TextBlock>
+                </StackPanel>
+
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>

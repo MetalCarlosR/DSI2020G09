@@ -76,7 +76,7 @@ namespace ProyectoDSI
 
         private void GoBack(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage));
+            this.Frame.Navigate(Frame.BackStack.Last().SourcePageType);
         }
 
         private void AddCharacterToLoadOut(object sender, RoutedEventArgs e)
