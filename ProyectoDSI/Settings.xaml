@@ -9,8 +9,8 @@
     RequestedTheme="Light"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
-        <SolidColorBrush x:Key="grayColor" Color="#33828484" />
-        <SolidColorBrush x:Key="yellowColor" Color="#ffff44" />
+        <SolidColorBrush x:Key="grayColor" Color="CadetBlue" />
+        <SolidColorBrush x:Key="yellowColor" Color="Gold" />
     </Page.Resources>
     
     <Grid>
@@ -27,19 +27,19 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button x:Name="GeneralButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="0" Click="GeneralButtonClick">
+            <Button Background="CadetBlue" x:Name="GeneralButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Grid.Row="0" Click="GeneralButtonClick">
                 <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="General" Grid.Row="0" FontSize="32"></TextBlock>
             </Button>
-            <Button x:Name="VideoButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="1" Click="VideoButtonClick">
+            <Button Background="CadetBlue" x:Name="VideoButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" Click="VideoButtonClick">
                 <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Video" Grid.Row="1" FontSize="32"></TextBlock>
             </Button>
-            <Button  x:Name="AudioButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#ffff44" Grid.Row="2" Click="AudioButtonClick">
+            <Button Background="Gold" x:Name="AudioButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Click="AudioButtonClick">
                 <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Audio" Grid.Row="2" FontSize="32"></TextBlock>
             </Button>
-            <Button  x:Name="ControlsButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="3" Click="ControlsButtonClick">
+            <Button Background="CadetBlue"  x:Name="ControlsButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Click="ControlsButtonClick">
                 <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Controls" Grid.Row="3" FontSize="32"></TextBlock>
             </Button>
-            <Button  x:Name="AccesibilityButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="4" Click="AccesibilityButtonClick">
+            <Button Background="CadetBlue" x:Name="AccesibilityButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="4" Click="AccesibilityButtonClick">
                 <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Accessibility" Grid.Row="4" FontSize="32"></TextBlock>
             </Button>
         </Grid>
