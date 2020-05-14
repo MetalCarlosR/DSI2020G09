@@ -6,8 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    RequestedTheme="Light">
+    <Page.Resources>
+        <SolidColorBrush x:Key="grayColor" Color="#33828484" />
+        <SolidColorBrush x:Key="yellowColor" Color="#ffff44" />
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -105,15 +109,17 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Background="#ffff44" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="ShowDailies">
+                <Button x:Name="dailyButton" Background="#ffff44" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="ShowDailies">
                     <TextBlock FontSize="24">Daily Challenges</TextBlock>
                 </Button>
-                <Button Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Button x:Name="weaklyButton" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="showWeeklies">
                     <TextBlock FontSize="24">Weekly Challenges</TextBlock>
                 </Button>
 
-                <Border Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Gray" Background="LightGreen"></Border>
-                <Border Grid.Row="4" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Gray" Background="LightGreen"></Border>
+                <Border x:Name="challengeBorder0" Grid.Row="1" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Gray" Background="LightGreen" Visibility="Collapsed"></Border>
+                <Border x:Name="challengeBorder1" Grid.Row="2" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Gray" Background="LightGreen" Visibility="Collapsed"></Border>
+                <Border x:Name="challengeBorder2" Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Gray" Background="LightGreen" Visibility="Visible"></Border>
+                <Border x:Name="challengeBorder3" Grid.Row="4" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Gray" Background="LightGreen" Visibility="Visible"></Border>
 
                 <TextBlock x:Name="challengeText0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">Play 1 Game</TextBlock>
                 <TextBlock x:Name="challengeText1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">Drive 10 km</TextBlock>

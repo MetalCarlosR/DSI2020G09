@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -43,7 +44,8 @@ namespace ProyectoDSI
             skins.Add(3, new BitmapImage(new Uri("ms-appx:///Assets/Skin4.png", UriKind.Absolute)));
 
             grafittis.Add(0, new BitmapImage(new Uri("ms-appx:///Assets/Grafitti1.png", UriKind.Absolute)));
-
+            daily = true;
+            ShowChallenges();
 
         }
 
@@ -91,11 +93,28 @@ namespace ProyectoDSI
             challengeStatus1.Text = (challengeList[1]).actualValue + "/" +(challengeList[1]).maxValue;
             challengeStatus2.Text = (challengeList[2]).actualValue + "/" +(challengeList[2]).maxValue;
             challengeStatus3.Text = (challengeList[3]).actualValue + "/" +(challengeList[3]).maxValue;
+
+            challengeBorder0.Visibility = ((challengeList[0]).actualValue < (challengeList[0]).maxValue) ? Visibility.Collapsed : Visibility.Visible;
+            challengeBorder1.Visibility = ((challengeList[1]).actualValue < (challengeList[1]).maxValue) ? Visibility.Collapsed : Visibility.Visible;
+            challengeBorder2.Visibility = ((challengeList[2]).actualValue < (challengeList[2]).maxValue) ? Visibility.Collapsed : Visibility.Visible;
+            challengeBorder3.Visibility = ((challengeList[3]).actualValue < (challengeList[3]).maxValue) ? Visibility.Collapsed : Visibility.Visible;
+
         }
 
         private void ShowDailies(object sender, RoutedEventArgs e)
         {
+            daily = true;
+            ((Button)sender).Background = (SolidColorBrush)Resources["yellowColor"];
+            weaklyButton.Background=(SolidColorBrush)Resources["grayColor"];
+            ShowChallenges();
+        }
 
+        private void showWeeklies(object sender, RoutedEventArgs e)
+        {
+            daily = false;
+            ((Button)sender).Background = (SolidColorBrush)Resources["yellowColor"];
+            dailyButton.Background = (SolidColorBrush)Resources["grayColor"];
+            ShowChallenges();
         }
     }
 }
