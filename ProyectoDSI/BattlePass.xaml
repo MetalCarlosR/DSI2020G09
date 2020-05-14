@@ -111,6 +111,10 @@
                 <Button Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                     <TextBlock FontSize="24">Weekly Challenges</TextBlock>
                 </Button>
+
+                <Border Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Gray" Background="LightGreen"></Border>
+                <Border Grid.Row="4" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Gray" Background="LightGreen"></Border>
+
                 <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">Play 1 Game</TextBlock>
                 <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">Drive 10 km</TextBlock>
                 <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">Kill 10 players</TextBlock>
@@ -158,25 +162,27 @@
                 <TextBlock Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center"> 8</TextBlock>
                 <TextBlock Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center"> 9</TextBlock>
 
-                <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"> Character</TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
+                <Button Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Tag = "0" Click="ShowSkin"> Skin</Button>
+                <Button Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Tag = "0" Click="ShowCharacter"> Character</Button>
+                <Button Grid.Row="1" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" Tag = "1" Click="ShowSkin"> Skin</Button>
 
-                <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"> Voice</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center"> Grafitti</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center"> Voice</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center"> Skin</TextBlock>
-
-
+                <Button Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="0" Click="ShowSkin"> Skin</Button>
+                <Button Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="2" Click="ShowVoice"> Voice</Button>
+                <Button Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="1" Click="ShowSkin"> Skin</Button>
+                <Button Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="2" Click="ShowSkin"> Skin</Button>
+                <Button Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="0" Click="ShowGrafitti"> Grafitti</Button>
+                <Button Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="3" Click="ShowSkin"> Skin</Button>
+                <Button Grid.Row="2" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="3" Click="ShowSkin"> Skin</Button>
+                <Button Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="3" Click="ShowVoice"> Voice</Button>
+                <Button Grid.Row="2" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="3" Click="ShowSkin">Skin</Button>
 
             </Grid>
             <Canvas Grid.Column="1">
-                <Image  Source="/Assets/cochewapo.png" Height="583" Width="740" ></Image>
+                <Image x:Name="displayImage" Source="/Assets/CarRender.png" Height="400" Width="740"></Image>
+                <!--<Image  Source="/Assets/Character1.png" Height="583" Width="740" ></Image>
+                <Image  Source="/Assets/Character2.png" Height="583" Width="740" ></Image>
+                <Image  Source="/Assets/Character3.png" Height="583" Width="740" ></Image>
+                <Image  Source="/Assets/CharactersBattlePass.png" Height="583" Width="740" ></Image>-->
             </Canvas>
         </Grid>
 

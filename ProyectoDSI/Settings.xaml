@@ -8,7 +8,11 @@
     mc:Ignorable="d"
     RequestedTheme="Light"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.Resources>
+        <SolidColorBrush x:Key="grayColor" Color="#33828484" />
+        <SolidColorBrush x:Key="yellowColor" Color="#ffff44" />
+    </Page.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.8*"/>
@@ -23,20 +27,20 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="0">
+            <Button x:Name="GeneralButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="0" Click="GeneralButtonClick">
                 <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="General" Grid.Row="0" FontSize="32"></TextBlock>
             </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="1">
+            <Button x:Name="VideoButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="1" Click="VideoButtonClick">
                 <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Video" Grid.Row="1" FontSize="32"></TextBlock>
             </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#ffff44" Grid.Row="2">
+            <Button  x:Name="AudioButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#ffff44" Grid.Row="2" Click="AudioButtonClick">
                 <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Audio" Grid.Row="2" FontSize="32"></TextBlock>
             </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="3">
+            <Button  x:Name="ControlsButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="3" Click="ControlsButtonClick">
                 <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Controls" Grid.Row="3" FontSize="32"></TextBlock>
             </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="4">
-                <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Accesibility" Grid.Row="4" FontSize="32"></TextBlock>
+            <Button  x:Name="AccesibilityButton" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#33828484" Grid.Row="4" Click="AccesibilityButtonClick">
+                <TextBlock Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Accessibility" Grid.Row="4" FontSize="32"></TextBlock>
             </Button>
         </Grid>
         <Button Grid.Column="3" HorizontalAlignment="right" VerticalAlignment="top" Background="#33020404" Width="120" Click="GoBack">
@@ -44,7 +48,8 @@
                 <SymbolIcon Symbol="Back"/>
             </Viewbox>
         </Button>
-        <Grid Grid.Column="1">
+
+        <Grid x:Name="AudioSettings" Grid.Column="1" Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
@@ -52,6 +57,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -70,8 +76,150 @@
             <Slider Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Value="50" Minimum="0" Maximum="100" Width="350"></Slider>
 
             <TextBlock Grid.Column="0" Grid.Row="4" Text="Voice Language" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-            <DropDownButton Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200"></DropDownButton>
+            <ComboBox x:Name="VoiceLanguageBox" Height="auto" Width="296" Grid.Column="1" Grid.Row="4" DisplayMemberPath="Source"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock>English</TextBlock>
+                <TextBlock>Spanish</TextBlock>
+                <TextBlock>French</TextBlock>
+                <TextBlock>Russian</TextBlock>
+                <TextBlock>Portuguese</TextBlock>
+            </ComboBox>
         </Grid>
+        <Grid x:Name="VideoSettings" Grid.Column="1" Visibility="Collapsed">
 
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Shadows </TextBlock>
+            <ComboBox x:Name="ShadowsBox" Height="auto" Width="296" Grid.Column="1" DisplayMemberPath="Source"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock>Off</TextBlock>
+                <TextBlock>Low</TextBlock>
+                <TextBlock>Medium</TextBlock>
+                <TextBlock>High</TextBlock>
+            </ComboBox>
+            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> DirectX </TextBlock>
+            <ComboBox x:Name="DirectXBox" Height="auto" Width="296" Grid.Column="1" Grid.Row="1" DisplayMemberPath="Source"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock>DirectX 11</TextBlock>
+                <TextBlock>DirectX 12</TextBlock>
+            </ComboBox>
+            <TextBlock Grid.Column="0" Grid.Row="2" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Anti-Aliasing </TextBlock>
+            <CheckBox Grid.Column="1" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="32"> On/Off</CheckBox>
+            <TextBlock Grid.Column="0" Grid.Row="3" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Field Of View</TextBlock>
+            <Slider Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Value="100" Minimum="50" Maximum="103" Width="350"></Slider>
+            <TextBlock Grid.Column="0" Grid.Row="4" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Subtitles</TextBlock>
+            <ComboBox x:Name="SubtitleBox" Height="auto" Width="296" Grid.Column="1" Grid.Row="4" DisplayMemberPath="Source"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock>English </TextBlock>
+                <TextBlock>None </TextBlock>
+            </ComboBox>
+        </Grid>
+        <Grid x:Name="ControlsSettings" Grid.Column="1" Visibility="Collapsed">
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Ultimate Ability</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="0" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Q</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Main Ability</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="1" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> E</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="2" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Secondary Ability</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="2" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> LShift</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="3" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Show Scores</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="3" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Tab</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="4" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Swap loadout</TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="4" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> LControl</TextBlock>
+
+        </Grid>
+        <Grid x:Name="GeneralSettings" Grid.Column="1" Visibility="Collapsed">
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Mouse sensitivity</TextBlock>
+            <Slider Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Value="1.4" Minimum="0" Maximum="10" Width="350"></Slider>
+
+            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> In game display size</TextBlock>
+            <ComboBox x:Name="DisplaySize" Height="auto" Width="296" Grid.Column="1" Grid.Row="1" DisplayMemberPath="Source"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock>Fullscreen</TextBlock>
+                <TextBlock>Windowed</TextBlock>
+                <TextBlock>Windowed fullscreen</TextBlock>
+            </ComboBox>
+            <TextBlock Grid.Column="0" Grid.Row="2" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> In game UI scale</TextBlock>
+            <Slider Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Value="1" Minimum="0" Maximum="10" Width="350"></Slider>
+
+            <TextBlock Grid.Column="0" Grid.Row="3" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Team voice chat</TextBlock>
+            <CheckBox Grid.Column="1" Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="32">On/Off</CheckBox>
+
+            <TextBlock Grid.Column="0" Grid.Row="4" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Language filter</TextBlock>
+            <CheckBox Grid.Column="1" Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="32">On/Off</CheckBox>
+
+        </Grid>
+        <Grid x:Name="AccesibilitySettings" Grid.Column="1" Visibility="Collapsed">
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Color Blind Filter</TextBlock>
+            <ComboBox x:Name="ColorBlindFiltersBox" Height="auto" Width="296" Grid.Column="1" DisplayMemberPath="Source"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock>None</TextBlock>
+                <TextBlock>Protanopia</TextBlock>
+                <TextBlock>Deuteranopia</TextBlock>
+                <TextBlock>Tritanopia</TextBlock>
+            </ComboBox>
+            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Friendly UI Color</TextBlock>
+            <ComboBox x:Name="FriendlyUIColorBox" Height="auto" Width="296" Grid.Column="1" Grid.Row="1" DisplayMemberPath="Source"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock>Green</TextBlock>
+                <TextBlock>Yellow</TextBlock>
+                <TextBlock>Blue</TextBlock>
+                <TextBlock>Purple</TextBlock>
+            </ComboBox>
+            <TextBlock Grid.Column="0" Grid.Row="2" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Enemy UI Color</TextBlock>
+            <ComboBox x:Name="EnemyUIColorBox" Height="auto" Width="296" Grid.Column="1" Grid.Row="2" DisplayMemberPath="Source"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock>Red</TextBlock>
+                <TextBlock>Yellow</TextBlock>
+                <TextBlock>Blue</TextBlock>
+                <TextBlock>Purple</TextBlock>
+            </ComboBox>
+            <TextBlock Grid.Column="0" Grid.Row="3" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Camera Assist</TextBlock>
+            <CheckBox Grid.Column="1" Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="32">On/Off</CheckBox>
+            <TextBlock Grid.Column="0" Grid.Row="4" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Vehicle Camera Assist</TextBlock>
+            <CheckBox Grid.Column="1" Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="32">On/Off</CheckBox>
+
+        </Grid>
     </Grid>
 </Page>

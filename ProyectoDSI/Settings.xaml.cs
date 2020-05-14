@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -20,6 +22,7 @@ namespace ProyectoDSI
     /// <summary>
     /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
+    /// 
     public sealed partial class Settings : Page
     {
         public Settings()
@@ -30,6 +33,55 @@ namespace ProyectoDSI
         private void GoBack(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private void GeneralButtonClick(object sender, RoutedEventArgs e)
+        {
+            ButtonClick(sender, e);
+            GeneralSettings.Visibility = Visibility.Visible;
+        }
+
+        private void VideoButtonClick(object sender, RoutedEventArgs e)
+        {
+            ButtonClick(sender, e);
+            VideoSettings.Visibility = Visibility.Visible;
+        }
+
+        private void AudioButtonClick(object sender, RoutedEventArgs e)
+        {
+            ButtonClick(sender, e);
+            AudioSettings.Visibility = Visibility.Visible;
+        }
+
+        private void ControlsButtonClick(object sender, RoutedEventArgs e)
+        {
+            ButtonClick(sender, e);
+            ControlsSettings.Visibility = Visibility.Visible;
+        }
+
+        private void AccesibilityButtonClick(object sender, RoutedEventArgs e)
+        {
+            ButtonClick(sender, e);
+            AccesibilitySettings.Visibility = Visibility.Visible;
+        }
+        private void ButtonClick(object sender, RoutedEventArgs e)
+        {
+            GeneralButton.Background = (SolidColorBrush)Resources["grayColor"];
+            VideoButton.Background = (SolidColorBrush)Resources["grayColor"];
+            AudioButton.Background = (SolidColorBrush)Resources["grayColor"];
+            AccesibilityButton.Background = (SolidColorBrush)Resources["grayColor"];
+            ControlsButton.Background = (SolidColorBrush)Resources["grayColor"];
+
+
+
+            AudioSettings.Visibility = Visibility.Collapsed;
+            AccesibilitySettings.Visibility = Visibility.Collapsed;
+            ControlsSettings.Visibility = Visibility.Collapsed;
+            GeneralSettings.Visibility = Visibility.Collapsed;
+            VideoSettings.Visibility = Visibility.Collapsed;
+
+            (sender as Button).Background = (SolidColorBrush)Resources["yellowColor"];
+
         }
     }
 }

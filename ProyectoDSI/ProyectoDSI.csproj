@@ -163,6 +163,7 @@
     <Content Include="Assets\Coin.png" />
     <Content Include="Assets\Fondo.jpg" />
     <Content Include="Assets\Gem.png" />
+    <Content Include="Assets\Grafitti1.png" />
     <Content Include="Assets\HealthBar.png" />
     <Content Include="Assets\icon.png" />
     <Content Include="Assets\icon2.png" />
