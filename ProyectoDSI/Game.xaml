@@ -9,17 +9,19 @@
       Background="Gray">
 
     <Grid>
-        <Canvas>
-            <Image Source="/Assets/Icon.png" Canvas.Left="78" Canvas.Top="818" Height="86" Width="101" RenderTransformOrigin="0.918,0.552"></Image>
-            <Image Source="/Assets/icon2.png" Canvas.Left="209" Canvas.Top="818" Height="86" Width="101" RenderTransformOrigin="0.918,0.552"></Image>
-            <Image Source="/Assets/Position.png" Height="167" Width="260" Canvas.Left="-1"/>
-            <Image Source="/Assets/HealthBar.png" Canvas.Left="-1" Canvas.Top="909" Height="91" Width="346"></Image>
-            <Image Source="/Assets/RevolverheldUltimative.png" Canvas.Left="583" Canvas.Top="818" Height="172" Width="335"></Image>
-            <Image Source="/Assets/CarRender.png" Height="1000" Width="1490"></Image>
-            <Image Source="/Assets/minimap.png" Height="326" Width="310" Canvas.Left="1180" Canvas.Top="10"></Image>
-            <Image Source="/Assets/Barra1.png" Height="72" Width="249" Canvas.Left="11" Canvas.Top="202"></Image>
-            <Image Source="/Assets/Barra2.png" Height="72" Width="249" Canvas.Left="11" Canvas.Top="356"></Image>
-            <Image Source="/Assets/Barra3.png" Height="72" Width="249" Canvas.Left="10" Canvas.Top="279"></Image>
-        </Canvas>
+        <Image Source="/Assets/CarRender.png" RenderTransformOrigin="0.5,0.5" Margin="472,271,460,270">
+            <Image.RenderTransform>
+                <CompositeTransform ScaleX="2" ScaleY="2"/>
+            </Image.RenderTransform>
+        </Image>
+        <Image VerticalAlignment="Top" HorizontalAlignment="Center" Source="/Assets/RevolverheldUltimative.png" Height="157" Margin="0,913,0,0" />
+        <Image Source="/Assets/Icon.png" Canvas.Left="78" Canvas.Top="818" Height="86" Width="101" RenderTransformOrigin="0.918,0.552" Margin="57,879,1762,115"></Image>
+        <Image Source="/Assets/icon2.png" Canvas.Left="209" Canvas.Top="818" Height="86" Width="101" RenderTransformOrigin="0.918,0.552" Margin="176,879,1643,115"></Image>
+        <Image Source="/Assets/Position.png" Height="167" Width="260" Canvas.Left="-1" Margin="10,8,1650,905"/>
+        <Image Source="/Assets/HealthBar.png" Canvas.Left="-1" Canvas.Top="909" Height="91" Width="346" Margin="3,978,1571,11"></Image>
+        <Image Source="/Assets/minimap.png" Height="326" Width="310" Canvas.Left="1180" Canvas.Top="10" Margin="1600,2,10,752"></Image>
+        <Image Source="/Assets/Barra1.png" Height="72" Width="249" Canvas.Left="11" Canvas.Top="202" Margin="16,387,1655,621"></Image>
+        <Image Source="/Assets/Barra2.png" Height="72" Width="249" Canvas.Left="11" Canvas.Top="356" Margin="16,315,1655,693"></Image>
+        <Image Source="/Assets/Barra3.png" Height="72" Width="249" Canvas.Left="10" Canvas.Top="279" Margin="21,238,1650,770"></Image>
     </Grid>
 </Page>

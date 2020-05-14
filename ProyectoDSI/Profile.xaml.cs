@@ -32,6 +32,8 @@ namespace ProyectoDSI
             this.Frame.Navigate(typeof(MainPage));
         }
 
+
+        
         private void WindowClicked(object sender, RoutedEventArgs e)
         {
             OverviewPanel.Visibility = Visibility.Collapsed;
@@ -62,6 +64,45 @@ namespace ProyectoDSI
                     Icons.Background = (SolidColorBrush)Resources["GoldColor"];
                     break;
             }
+        }
+
+        private void GameClicked(object sender, RoutedEventArgs e)
+        {
+            Game0.Visibility = Visibility.Collapsed;
+            Game1.Visibility = Visibility.Collapsed;
+            Game2.Visibility = Visibility.Collapsed;
+            Game3.Visibility = Visibility.Collapsed;
+            Game0Button.Background = (SolidColorBrush)Resources["WeirdGray"];
+            Game1Button.Background = (SolidColorBrush)Resources["WeirdGray"];
+            Game2Button.Background = (SolidColorBrush)Resources["WeirdGray"];
+            Game3Button.Background = (SolidColorBrush)Resources["WeirdGray"];
+            SelectGame.Visibility = Visibility.Collapsed;
+            ReplayPanel.Visibility = Visibility.Visible;
+            Button b = sender as Button;
+            switch (b.Name)
+            {
+                case "Game0Button":
+                    Game0.Visibility = Visibility.Visible;
+                    Game0Button.Background = (SolidColorBrush)Resources["GoldColor"];
+                    break;
+                case "Game1Button":
+                    Game1.Visibility = Visibility.Visible;
+                    Game1Button.Background = (SolidColorBrush)Resources["GoldColor"];
+                    break;
+                case "Game2Button":
+                    Game2.Visibility = Visibility.Visible;
+                    Game2Button.Background = (SolidColorBrush)Resources["GoldColor"];
+                    break;
+                case "Game3Button":
+                    Game3.Visibility = Visibility.Visible;
+                    Game3Button.Background = (SolidColorBrush)Resources["GoldColor"];
+                    break;
+            }
+        }
+
+        private void WatchReplay_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Game));
         }
 
     }
