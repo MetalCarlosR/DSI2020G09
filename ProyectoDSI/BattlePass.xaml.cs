@@ -26,6 +26,9 @@ namespace ProyectoDSI
         Dictionary<int, ImageSource> characters = new Dictionary<int, ImageSource>();
         Dictionary<int, ImageSource> skins = new Dictionary<int, ImageSource>();
         Dictionary<int, ImageSource> grafittis = new Dictionary<int, ImageSource>();
+        //This bools defines if we show daile or weekly chalenges
+        bool daily = true; //false means weekly
+
         public BattlePass()
         {
             this.InitializeComponent();
@@ -70,6 +73,28 @@ namespace ProyectoDSI
         private void ShowGrafitti(object sender, RoutedEventArgs e)
         {
             displayImage.Source = grafittis[0];
+        }
+        private void ShowChallenges()
+        {
+            List<Challenge> challengeList;
+            if (daily)
+                challengeList = Player.dailyChallenge;
+            else
+                challengeList = Player.weeklyChallenge;
+
+            challengeText0.Text = (challengeList[0]).message;
+            challengeText1.Text = (challengeList[1]).message;
+            challengeText2.Text = (challengeList[2]).message;
+            challengeText3.Text = (challengeList[3]).message;
+
+            challengeStatus0.Text = (challengeList[0]).actualValue + "/" +(challengeList[0]).maxValue;
+            challengeStatus1.Text = (challengeList[1]).actualValue + "/" +(challengeList[1]).maxValue;
+            challengeStatus2.Text = (challengeList[2]).actualValue + "/" +(challengeList[2]).maxValue;
+            challengeStatus3.Text = (challengeList[3]).actualValue + "/" +(challengeList[3]).maxValue;
+        }
+
+        private void ShowDailies(object sender, RoutedEventArgs e)
+        {
 
         }
     }
