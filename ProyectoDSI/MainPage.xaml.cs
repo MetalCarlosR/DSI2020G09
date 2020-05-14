@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -24,9 +25,20 @@ namespace ProyectoDSI
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public ObservableCollection<Friend> friendsList { get; } = new ObservableCollection<Friend>();
+
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            foreach(Friend f in Friends.friends_)
+            {
+                friendsList.Add(f);
+            }
         }
 
         private void GoToBattlePass(object sender, RoutedEventArgs e)
@@ -135,6 +147,56 @@ namespace ProyectoDSI
         private void CloseApp(object sender, RoutedEventArgs e)
         {
             CoreApplication.Exit();
+        }
+
+        private void FriendsList_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+        }
+
+        private void ShowFriendList(object sender, RoutedEventArgs e)
+        {
+            FriendsPanel.SelectedItem = null;
+            if (FriendsPanel.Visibility == Windows.UI.Xaml.Visibility.Collapsed)
+            {
+                FriendsPanel.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
+        }
+
+        private void OpenRemoveFriendPopUp(object sender, RoutedEventArgs e)
+        {
+            if (RemoveFriendPopUp.Visibility == Windows.UI.Xaml.Visibility.Collapsed)
+            {
+                RemoveFriendPopUp.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
+            else
+            {
+                RemoveFriendPopUp.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+        }
+
+        private void RemoveFriend(object sender, RoutedEventArgs e)
+        {
+            Friend f = FriendsPanel.SelectedItem as Friend;
+            FriendsPanel.SelectedItem = null;
+            friendsList.Remove(f);
+            Friends.removeFriend(f);
+            OpenRemoveFriendPopUp(sender, e);
+        }
+
+        private void ChangeRolDriver(object sender, RoutedEventArgs e)
+        {
+            ActualRolIcon.Symbol = Windows.UI.Xaml.Controls.Symbol.Target;
+        }
+
+        private void ChangeRolSupport(object sender, RoutedEventArgs e)
+        {
+            ActualRolIcon.Symbol = Windows.UI.Xaml.Controls.Symbol.Repair;
+        }
+
+        private void ChangeRolCopilot(object sender, RoutedEventArgs e)
+        {
+            ActualRolIcon.Symbol = Windows.UI.Xaml.Controls.Symbol.Directions;
         }
     }
 }

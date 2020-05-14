@@ -19,6 +19,29 @@
             <Setter Property="Background" Value="#CC70C7DA"/>
             <Setter Property="Foreground" Value="Black"/>
         </Style>
+        <MenuFlyout x:Key="FriendsListFlyout" Placement="Left">
+            <MenuFlyoutItem Text="Invite"/>
+            <MenuFlyoutItem Text="Spectate"/>
+            <MenuFlyoutSeparator/>
+            <MenuFlyoutItem Text="Remove" Click="OpenRemoveFriendPopUp"/>
+        </MenuFlyout>
+        <MenuFlyout x:Name="RolsFlyout">
+            <MenuFlyoutItem Icon="Target" Text="Driver" Click="ChangeRolDriver"/>
+            <MenuFlyoutItem Icon="Repair" Text="Support" Click="ChangeRolSupport"/>
+            <MenuFlyoutItem Icon="Directions" Text="Copilot" Click="ChangeRolCopilot"/>
+        </MenuFlyout>
+        <DataTemplate x:Key="FriendItemListView" x:DataType="local:Friend" PickerFlyoutBase.Title="FriendsListFlyout">
+            <Grid FlyoutBase.AttachedFlyout="{StaticResource FriendsListFlyout}" Tapped="FriendsList_Tapped">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Width="30" Height="30">
+                    <SymbolIcon Symbol="Contact"/>
+                </Viewbox>
+                <TextBlock Grid.Column="1" Text="{x:Bind name}" FontSize="20" Margin="10, 0, 0, 0"/>
+            </Grid>
+        </DataTemplate>
     </Page.Resources>
     <Page.Background>
         <AcrylicBrush TintColor="#CC70C7DA"/>
@@ -57,15 +80,15 @@
                 <SymbolIcon Symbol="Clear"/>
             </Viewbox>
             <Viewbox Grid.Row="1" Grid.Column="1" Margin="314,112,766,0" Height="45" Width="45" VerticalAlignment="Top" Grid.RowSpan="2">
-                <SymbolIcon Symbol="Target"/>
+                <SymbolIcon x:Name="ActualRolIcon" Symbol="Target"/>
             </Viewbox>
 
-            <Button Grid.Row="2" Grid.Column="1" Margin="760,187,0,0" VerticalAlignment="Top" Height="90" Width="90" >
+            <Button Grid.Row="2" Grid.Column="1" Margin="760,187,0,0" VerticalAlignment="Top" Height="90" Width="90" Click="ShowFriendList">
                 <Viewbox>
                     <SymbolIcon Symbol="AddFriend"/>
                 </Viewbox>
             </Button>
-            <Button Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Margin="314,616,0,0" VerticalAlignment="Top" Height="90" Width="90" >
+            <Button Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Margin="314,616,0,0" VerticalAlignment="Top" Height="90" Width="90" FlyoutBase.AttachedFlyout="{StaticResource RolsFlyout}" Tapped="FriendsList_Tapped">
                 <Viewbox>
                     <SymbolIcon Symbol="Sync"/>
                 </Viewbox>
@@ -167,8 +190,8 @@
                     </StackPanel>
                 </ListView>
 
-                <Border x:Name="ChatBox" Grid.Row="1" Background="#55000000"/>
-                <ScrollViewer x:Name="Chat" Grid.Row="1" VerticalScrollBarVisibility="Visible"  HorizontalScrollBarVisibility="Disabled" VerticalScrollMode="Enabled" HorizontalScrollMode="Disabled">
+                <Border x:Name="ChatBox" Visibility="Collapsed" Grid.Row="1" Background="#55000000"/>
+                <ScrollViewer x:Name="Chat" Visibility="Collapsed" Grid.Row="1" VerticalScrollBarVisibility="Visible"  HorizontalScrollBarVisibility="Disabled" VerticalScrollMode="Enabled" HorizontalScrollMode="Disabled">
                     <TextBlock x:Name="ChatText" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="WrapWholeWords">
                         Player 2: u know if hes coming?
                         <LineBreak/>
@@ -180,21 +203,23 @@
             <!--Lista de amigos-->
             <Grid Grid.Row="2" Grid.Column="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="3.3*"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="1.2*"/>
                 </Grid.RowDefinitions>
-                <ListView x:Name="FriendsPanel" Header=" Friends" Grid.Column="1" Grid.Row="1" Background="DarkSlateGray" BorderThickness="5" BorderBrush="Black" FontSize="32">
-                    <StackPanel Orientation="Horizontal">
-                        <Viewbox Width="30" Height="30">
-                            <SymbolIcon Symbol="Contact"/>
-                        </Viewbox>
-                        <TextBlock Text="Player2" FontSize="20" Margin="10, 0, 0, 0"/>
-                    </StackPanel>
-                </ListView>
+                <ListView x:Name="FriendsPanel" 
+                          Visibility="Collapsed" 
+                          Header=" Friends" 
+                          Grid.Column="1" Grid.Row="1"
+                          FlyoutBase.AttachedFlyout="{StaticResource FriendsListFlyout}"
+                          ItemsSource="{x:Bind friendsList}"
+                          ItemTemplate="{StaticResource FriendItemListView}"
+                          Background="DarkSlateGray" 
+                          BorderThickness="5" BorderBrush="Black" 
+                          FontSize="32"/>
             </Grid>
         </Grid>
         
@@ -268,6 +293,77 @@
                 </Grid>
             </Grid>
         </Grid>
-        
+
+        <!--PopUp eliminar un amigo-->
+        <Grid x:Name="RemoveFriendPopUp" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.RowSpan="2" Grid.ColumnSpan="2" Background="#FF70C7DA" BorderBrush="Black" BorderThickness="5"/>
+                <TextBlock Text="Are you sure you want to remove this friend?"
+                               Grid.Row="0" Grid.ColumnSpan="2"
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"
+                               Foreground="Black"
+                               FontSize="32"/>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Yes" Grid.Row="1" Grid.Column="1"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center" 
+                            VerticalContentAlignment="Center" 
+                            Background="Goldenrod"
+                            FontSize="45"
+                            Click="RemoveFriend"/>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="No" Grid.Row="1" Grid.Column="1"
+                            VerticalAlignment="Stretch"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center" 
+                            VerticalContentAlignment="Center"
+                            Background="DarkSlateGray"
+                            FontSize="45"
+                            Click="OpenRemoveFriendPopUp"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
     </Grid>
 </Page>
