@@ -16,6 +16,7 @@ namespace ProyectoDSI
         public int gems;
         public bool bought;
         public Type type;
+        public string profImage;
 
         public StoreItem() { }
         
@@ -33,7 +34,8 @@ namespace ProyectoDSI
                 money = 50,
                 gems= 0,
                 bought = false,
-                type = StoreItem.Type.character
+                type = StoreItem.Type.character,
+                profImage = "Assets/Portrait1.png"
              },
 
             new StoreItem()
@@ -44,7 +46,9 @@ namespace ProyectoDSI
                 money = 50,
                 gems= 0,
                 bought = false,
-                type = StoreItem.Type.character
+                type = StoreItem.Type.character,
+                profImage = "Assets/Portrait2.png"
+
              },
 
             new StoreItem()
@@ -55,7 +59,9 @@ namespace ProyectoDSI
                 money = 50,
                 gems= 0,
                 bought = false,
-                type = StoreItem.Type.character
+                type = StoreItem.Type.character,
+                profImage = "Assets/Portrait3.png"
+
              },
 
             new StoreItem()
@@ -66,7 +72,8 @@ namespace ProyectoDSI
                 money = 50,
                 gems= 0,
                 bought = false,
-                type = StoreItem.Type.character
+                type = StoreItem.Type.character,
+                profImage = "Assets/Portrait4.png"
              },
 
             new StoreItem()

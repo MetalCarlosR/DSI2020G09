@@ -35,7 +35,7 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid>
+    <Grid x:Name="Layout">
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="15"/>
@@ -217,9 +217,9 @@
                     Content="Sunglasses">
             </Button>
             <ListBox x:Name="SunglassesOptions" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
-                <ListBoxItem>Gafas1</ListBoxItem>
-                <ListBoxItem>Gafas2</ListBoxItem>
-                <ListBoxItem>Gafas3</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
             </ListBox>
             <Button x:Name="Gloves"
                     HorizontalAlignment="Left"
@@ -233,9 +233,9 @@
                     Content="Gloves">
             </Button>
             <ListBox x:Name="GlovesOptions" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
-                <ListBoxItem>Gafas1</ListBoxItem>
-                <ListBoxItem>Gafas2</ListBoxItem>
-                <ListBoxItem>Gafas3</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
             </ListBox>
             <Button x:Name="Shoes"
                     HorizontalAlignment="Left"
@@ -249,9 +249,9 @@
                     Content="Shoes">
             </Button>
             <ListBox x:Name="ShoesOptions" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
-                <ListBoxItem>Gafas1</ListBoxItem>
-                <ListBoxItem>Gafas2</ListBoxItem>
-                <ListBoxItem>Gafas3</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
             </ListBox>
 
 
@@ -274,44 +274,39 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="Character1"
+            
+            <Image x:Name="Character1"
                    Grid.Column="0"
-                    Click="ChangeCharacter">
-
-                <Image Source="Assets/Portrait1.png" 
-                   VerticalAlignment="Stretch"
-                   HorizontalAlignment="Center"
-                   />
-            </Button>
-            <Button x:Name="Character2"
-                    Grid.Column="1"
-                    Click="ChangeCharacter">
-
-                <Image Source="Assets/Portrait2.png"
+                   Source="Assets/BlackPortrait.png" 
                    VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch"
+                   PointerPressed="ChangeCharacter"
                    />
-            </Button>
-            <Button x:Name="Character3"
+            <Image x:Name="Character2"
+                   Grid.Column="1"
+                   Source="Assets/BlackPortrait.png" 
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"
+                   PointerPressed="ChangeCharacter"
+                   />
+            <Image x:Name="Character3"
                    Grid.Column="2"
-                    Click="ChangeCharacter">
-
-                <Image Source="Assets/Portrait3.png" 
+                   Source="Assets/BlackPortrait.png" 
                    VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch"
+                   PointerPressed="ChangeCharacter"
                    />
-            </Button>
-            <Button x:Name="Character4"
+
+            <Image x:Name="Character4"
                    Grid.Column="3"
-                    Click="ChangeCharacter">
-
-                <Image Source="Assets/BlackPortrait.png" 
+                   Source="Assets/BlackPortrait.png" 
                    VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch"
+                   PointerPressed="ChangeCharacter"
                    />
-            </Button>
         </Grid>
         
     </Grid>

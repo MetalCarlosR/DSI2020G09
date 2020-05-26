@@ -32,9 +32,8 @@ namespace ProyectoDSI
     {
 
         bool upgradesMenuInUse = false;
+        bool changingCharacter = true;
         Button lastClicked = null;
-        List<StoreItem> boughtItems = null;
-        Items items = null;
 
         public LoadOut()
         {
@@ -44,15 +43,24 @@ namespace ProyectoDSI
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            if (items == null)
-                items = new Items();
-            //que funciona bieeen
 
-            boughtItems = Items.boughtItems_;
             for (int i = 0; i < Items.boughtItems_.Count(); i++)
                 switch(Items.boughtItems_[i].type)
                 {
                     case StoreItem.Type.character:
+                        string name = "Character" + (i+1);
+                        Image item = Layout.FindName(name) as Image;
+                        if(item!=null)
+                        {
+                            string src = Items.boughtItems_[i].profImage;
+
+                            ImageSource source = new BitmapImage(new Uri(new Uri(Directory.GetCurrentDirectory(), UriKind.Absolute), new Uri(@src, UriKind.Relative)));
+
+                            item.Source = source;
+                            item.HorizontalAlignment = HorizontalAlignment.Stretch;
+                            item.VerticalAlignment = VerticalAlignment.Stretch;
+                        }
+                         
                     break;
                     case StoreItem.Type.skin:
                     SunglassesOptions.Items.Insert(SunglassesOptions.Items.Count(), Items.boughtItems_[i].name);
@@ -70,6 +78,7 @@ namespace ProyectoDSI
             ImageSource aux = Back.Source;
             Back.Source = Selected.Source;
             Selected.Source = aux;
+            changingCharacter = !changingCharacter;
         }
 
         private void ChangeSpacing(object sender, RoutedEventArgs e)
@@ -129,7 +138,29 @@ namespace ProyectoDSI
 
         private void ChangeCharacter(object sender, RoutedEventArgs e)
         {
-
+            Image img = (sender as Button).Content as Image;
+            string src = img.Source.ToString();
+            if( src != "Assets/BlackPortrait.png")
+            {
+                if (changingCharacter)
+                    Selected.Source = new BitmapImage(new Uri((Items.boughtItems_.Find(x => x.name == (sender as Button).Name)).image));
+                else
+                    Back.Source = new BitmapImage(new Uri((Items.boughtItems_.Find(x => x.name == (sender as Button).Name)).image));
+            }
         }
+        /*
+        private void ChangeCharacter(object sender, PointerRoutedEventArgs e)
+        {
+            Image img = (sender as Button).Content as Image;
+            string src = img.Source.ToString();
+            if (src != "Assets/BlackPortrait.png")
+            {
+                if (changingCharacter)
+                    Selected.Source = new BitmapImage(new Uri((Items.boughtItems_.Find(x => x.name == (sender as Button).Name)).image));
+                else
+                    Back.Source = new BitmapImage(new Uri((Items.boughtItems_.Find(x => x.name == (sender as Button).Name)).image));
+            }
+        }
+        /**/
     }
 }
