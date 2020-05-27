@@ -163,6 +163,11 @@
     <Content Include="Assets\Character3.png" />
     <Content Include="Assets\CharactersBattlePass.png" />
     <Content Include="Assets\Coin.png" />
+    <Content Include="Assets\Featured1.png" />
+    <Content Include="Assets\Featured2.png" />
+    <Content Include="Assets\Featured3.png" />
+    <Content Include="Assets\Featured4.png" />
+    <Content Include="Assets\Featured5.png" />
     <Content Include="Assets\Fondo.jpg" />
     <Content Include="Assets\Gem.png" />
     <Content Include="Assets\Grafitti1.png" />
@@ -171,11 +176,11 @@
     <Content Include="Assets\icon2.png" />
     <Content Include="Assets\Iconos\Icono1.png" />
     <Content Include="Assets\Iconos\Icono10.png" />
-    <Content Include="Assets\Iconos\Icono11.png" />
     <Content Include="Assets\Iconos\Icono2.png" />
     <Content Include="Assets\Iconos\Icono3.png" />
     <Content Include="Assets\Iconos\Icono4.png" />
     <Content Include="Assets\Iconos\Icono5.png" />
+    <Content Include="Assets\Iconos\Icono6.png" />
     <Content Include="Assets\Iconos\Icono7.png" />
     <Content Include="Assets\Iconos\Icono8.png" />
     <Content Include="Assets\Iconos\Icono9.png" />

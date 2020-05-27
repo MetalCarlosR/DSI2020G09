@@ -12,7 +12,7 @@
         <SolidColorBrush x:Key="blueColor" Color="CadetBlue" />
         <SolidColorBrush x:Key="yellowColor" Color="Gold" />
     </Page.Resources>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.8*"/>
@@ -99,26 +99,26 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" Grid.Row="0" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Shadows </TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="0" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Shadows</TextBlock>
             <ComboBox x:Name="ShadowsBox" Height="auto" Width="296" Grid.Column="1" DisplayMemberPath="Source"  VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock>Off</TextBlock>
                 <TextBlock>Low</TextBlock>
                 <TextBlock>Medium</TextBlock>
                 <TextBlock>High</TextBlock>
             </ComboBox>
-            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> DirectX </TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> DirectX</TextBlock>
             <ComboBox x:Name="DirectXBox" Height="auto" Width="296" Grid.Column="1" Grid.Row="1" DisplayMemberPath="Source"  VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock>DirectX 11</TextBlock>
                 <TextBlock>DirectX 12</TextBlock>
             </ComboBox>
-            <TextBlock Grid.Column="0" Grid.Row="2" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Anti-Aliasing </TextBlock>
-            <CheckBox Grid.Column="1" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="32"> On/Off</CheckBox>
+            <TextBlock Grid.Column="0" Grid.Row="2" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Anti-Aliasing</TextBlock>
+            <CheckBox Grid.Column="1" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="32">On/Off</CheckBox>
             <TextBlock Grid.Column="0" Grid.Row="3" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Field Of View</TextBlock>
             <Slider Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Value="100" Minimum="50" Maximum="103" Width="350"></Slider>
             <TextBlock Grid.Column="0" Grid.Row="4" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> Subtitles</TextBlock>
             <ComboBox x:Name="SubtitleBox" Height="auto" Width="296" Grid.Column="1" Grid.Row="4" DisplayMemberPath="Source"  VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock>English </TextBlock>
-                <TextBlock>None </TextBlock>
+                <TextBlock>English</TextBlock>
+                <TextBlock>None</TextBlock>
             </ComboBox>
         </Grid>
         <Grid x:Name="ControlsSettings" Grid.Column="1" Visibility="Collapsed">
@@ -165,12 +165,11 @@
             <Slider Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Value="1.4" Minimum="0" Maximum="10" Width="350"></Slider>
 
             <TextBlock Grid.Column="0" Grid.Row="1" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> In game display size</TextBlock>
-            <!--<ComboBox x:Name="DisplaySize" Height="auto" Width="296" Grid.Column="1" Grid.Row="1" DisplayMemberPath="Source"  VerticalAlignment="Center" HorizontalAlignment="Center" SelectionChanged="DisplaySize_SelectionChanged">
+            <ComboBox x:Name="DisplaySize" Height="auto" Width="296" Grid.Column="1" Grid.Row="1" DisplayMemberPath="Source"  VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock>Fullscreen</TextBlock>
                 <TextBlock>Windowed</TextBlock>
                 <TextBlock>Windowed fullscreen</TextBlock>
-            </ComboBox>-->
-            <CheckBox x:Name="DisplaySize" Height="auto" Width="auto" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="32" Content="FullScreen" Checked="DisplaySize_Checked"/>
+            </ComboBox>
             <TextBlock Grid.Column="0" Grid.Row="2" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"> In game UI scale</TextBlock>
             <Slider Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Value="1" Minimum="0" Maximum="10" Width="350"></Slider>
 

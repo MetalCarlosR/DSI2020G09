@@ -34,7 +34,6 @@ namespace ProyectoDSI
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            DisplaySize.IsChecked = ApplicationView.GetForCurrentView().IsFullScreenMode;
             base.OnNavigatedTo(e);
         }
 
@@ -89,13 +88,6 @@ namespace ProyectoDSI
             VideoSettings.Visibility = Visibility.Collapsed;
 
             (sender as Button).Background = (SolidColorBrush)Resources["yellowColor"];
-
-        }
-
-        private void DisplaySize_Checked(object sender, RoutedEventArgs e)
-        {
-            ApplicationView view = ApplicationView.GetForCurrentView();
-            if (DisplaySize.IsChecked == true) view.TryEnterFullScreenMode();
         }
     }
 }

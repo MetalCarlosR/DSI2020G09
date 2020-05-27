@@ -50,32 +50,32 @@ namespace ProyectoDSI
             new Icono()
             {
                id = 5,
+               name = "Icono6",
+               image = "Assets/Iconos/Icono6.png"
+            },
+            new Icono()
+            {
+               id = 6,
                name = "Icono7",
                image = "Assets/Iconos/Icono7.png"
             },
             new Icono()
             {
-               id = 6,
+               id = 7,
                name = "Icono8",
                image = "Assets/Iconos/Icono8.png"
             },
             new Icono()
             {
-               id = 7,
+               id = 8,
                name = "Icono9",
                image = "Assets/Iconos/Icono9.png"
             },
             new Icono()
             {
-               id = 8,
+               id = 9,
                name = "Icono10",
                image = "Assets/Iconos/Icono10.png"
-            },
-            new Icono()
-            {
-               id = 9,
-               name = "Icono11",
-               image = "Assets/Iconos/Icono11.png"
             }
         };
     }

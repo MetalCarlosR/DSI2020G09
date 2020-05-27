@@ -30,6 +30,7 @@ namespace ProyectoDSI
         //This bools defines if we show daile or weekly chalenges
         bool daily = true; //false means weekly
         int gold, gemas;
+        string iconProfile;
 
         public BattlePass()
         {
@@ -48,6 +49,7 @@ namespace ProyectoDSI
             gemas = Player.gems;
             gold = Player.gold;
             daily = true;
+            iconProfile = Player.icono.image;
             ShowChallenges();
 
         }

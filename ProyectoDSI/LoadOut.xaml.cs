@@ -34,6 +34,7 @@ namespace ProyectoDSI
         bool upgradesMenuInUse = false;
         bool changingCharacter = true;
         Button lastClicked = null;
+        string iconProfile;
 
         public LoadOut()
         {
@@ -43,6 +44,7 @@ namespace ProyectoDSI
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            iconProfile = Player.icono.image;
 
             for (int i = 0; i < Items.boughtItems_.Count(); i++)
                 switch(Items.boughtItems_[i].type)

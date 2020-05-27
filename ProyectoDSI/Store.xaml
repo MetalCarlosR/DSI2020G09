@@ -137,8 +137,8 @@
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <Viewbox Stretch="Uniform">
-                    <SymbolIcon Symbol="Contact"
-                                Foreground="Black"/>
+                    <!--<SymbolIcon Symbol="Contact"/>-->
+                    <Image x:Name="IconoPerfil" Source="{x:Bind iconProfile}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Viewbox>
                 <TextBlock x:Name="playerText" 
                            Text="Player1"
@@ -213,33 +213,30 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="0.05*"/>
             </Grid.RowDefinitions>
-            <Rectangle x:Name="Prueba" Grid.Row="1"
-                           Grid.Column="7"
-                           Grid.RowSpan="3"
-                           Fill="Gold"
-                           >
-            </Rectangle>
-            <Rectangle Grid.Row="1"
-                           Grid.Column="1"
-                           Fill="BlueViolet"
-                    />
-            <Rectangle Grid.Row="3"
-                           Grid.Column="1"
-                           Fill="BlueViolet"
-                    />
-            <Rectangle Grid.Row="1"
-                           Grid.Column="3"
-                           Fill="BlueViolet"
-                    />
-            <Rectangle Grid.Row="3"
-                           Grid.Column="3"
-                           Fill="BlueViolet"
-                    />
-            <Rectangle Grid.Row="1"
-                           Grid.Column="5"
-                           Grid.RowSpan="3"
-                           Fill="CornflowerBlue"
-                    />
+            
+            <Button x:Name="BattlePass" Grid.Row="1" Grid.Column="7" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Gold">
+                <Image Source="{x:Bind items_[1].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Button>
+
+            <Button x:Name="Featured1" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
+                <Image Source="{x:Bind items_[8].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Button>
+
+            <Button x:Name="Featured2" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
+                <Image Source="{x:Bind items_[9].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Button>
+
+            <Button x:Name="Featured3" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
+                <Image Source="{x:Bind items_[10].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Button>
+
+            <Button x:Name="Featured4" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
+                <Image Source="{x:Bind items_[11].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Button>
+
+            <Button x:Name="Featured5" Grid.Row="1" Grid.Column="5" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
+                <Image Source="{x:Bind items_[12].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Button>
 
         </Grid>
 
@@ -274,7 +271,7 @@
                        HorizontalAlignment="Center">
                 </Image>
             </Button>
-            
+
             <Button x:Name="Character1" Grid.Row="1"
                            Grid.Column="1"
                            Grid.RowSpan="3" 
@@ -284,7 +281,7 @@
 
                 </Image>
             </Button>
-            
+
             <Button x:Name="Character2" Grid.Row="1"
                            Grid.Column="3"
                            Grid.RowSpan="3" 
@@ -352,7 +349,7 @@
                        VerticalAlignment="Center">
                 </Image>
             </Button>
-            
+
             <Button x:Name="Skin3" 
                     Grid.Row="3"
                     Grid.Column="1"
@@ -475,8 +472,8 @@
                         Margin="0,0,50,50"/>
 
             </Grid>
-            
+
         </StackPanel>
-        
+
     </Grid>
 </Page>

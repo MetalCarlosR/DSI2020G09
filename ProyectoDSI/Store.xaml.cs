@@ -26,6 +26,8 @@ namespace ProyectoDSI
     public sealed partial class Store : Page
     {
         Button lastClicked = null;
+        string iconProfile;
+        List<StoreItem> items_;
         public Store()
         {
             this.InitializeComponent();
@@ -35,8 +37,12 @@ namespace ProyectoDSI
         {
             base.OnNavigatedTo(e);
 
+            items_ = Items.items_;
             money.Text = Player.gold.ToString();
             gems.Text = Player.gems.ToString();
+            iconProfile = Player.icono.image;
+
+
         }
 
         private void WindowClicked(object sender, RoutedEventArgs e)
@@ -78,11 +84,6 @@ namespace ProyectoDSI
             this.Frame.Navigate(Frame.BackStack.Last().SourcePageType);
         }
 
-
-        private void BuyCharacter(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void AddCharacterToLoadOut(object sender, RoutedEventArgs e)
         {
             //buscamos el item que se quiere comprar dentro de la lista
@@ -118,7 +119,6 @@ namespace ProyectoDSI
                 {
                     BuyOption.Visibility = Visibility.Visible;
                 }
-
             }
             else lastClicked = null;
         }
