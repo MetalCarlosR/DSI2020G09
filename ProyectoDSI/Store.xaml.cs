@@ -46,27 +46,29 @@ namespace ProyectoDSI
             SkinsOptions.Visibility = Visibility.Collapsed;
             MadOptions.Visibility = Visibility.Collapsed;
 
-            Characters.Background = new SolidColorBrush(Colors.CadetBlue);
-            Skins.Background = new SolidColorBrush(Colors.CadetBlue);
-            MadCoins.Background = new SolidColorBrush(Colors.CadetBlue);
+            Featured.Background = (SolidColorBrush)Resources["BlueColor"];
+            Characters.Background = (SolidColorBrush)Resources["BlueColor"];
+            Skins.Background = (SolidColorBrush)Resources["BlueColor"];
+            MadCoins.Background = (SolidColorBrush)Resources["BlueColor"];
 
             Button b = sender as Button;
             switch(b.Name)
             {
                 case "Featured":
                     FeaturedOptions.Visibility = Visibility.Visible;
+                    Featured.Background = (SolidColorBrush)Resources["GoldColor"];
                     break;
                 case "Characters":
                     CharacterOptions.Visibility = Visibility.Visible;
-                    Characters.Background = new SolidColorBrush(Colors.MidnightBlue);
+                    Characters.Background = (SolidColorBrush)Resources["GoldColor"];
                     break;
                 case "Skins":
                     SkinsOptions.Visibility = Visibility.Visible;
-                    Skins.Background = new SolidColorBrush(Colors.MidnightBlue);
+                    Skins.Background = (SolidColorBrush)Resources["GoldColor"];
                     break;
                 case "MadCoins":
                     MadOptions.Visibility = Visibility.Visible;
-                    MadCoins.Background = new SolidColorBrush(Colors.MidnightBlue);
+                    MadCoins.Background = (SolidColorBrush)Resources["GoldColor"];
                     break;
             }
         }
@@ -76,6 +78,11 @@ namespace ProyectoDSI
             this.Frame.Navigate(Frame.BackStack.Last().SourcePageType);
         }
 
+
+        private void BuyCharacter(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void AddCharacterToLoadOut(object sender, RoutedEventArgs e)
         {
             //buscamos el item que se quiere comprar dentro de la lista

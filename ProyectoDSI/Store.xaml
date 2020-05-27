@@ -9,6 +9,11 @@
     RequestedTheme="Light"
     Background="AliceBlue">
 
+
+    <Page.Resources>
+        <SolidColorBrush x:Key="GoldColor" Color="Gold"/>
+        <SolidColorBrush x:Key="BlueColor" Color="CadetBlue"/>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -345,7 +350,7 @@
             </Button>
             
             <Button x:Name="Skin3" 
-                    Grid.Row="5"
+                    Grid.Row="3"
                     Grid.Column="1"
                     Background="BlueViolet"
                     Click="BuyItem">
