@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
@@ -24,6 +25,8 @@ namespace ProyectoDSI
     {
 
         int Gold, Gems;
+        string iconProfile;
+        List<Icono> iconos;
         public Profile()
         {
             this.InitializeComponent();
@@ -34,7 +37,8 @@ namespace ProyectoDSI
             base.OnNavigatedTo(e);
             Gold = Player.gold;
             Gems = Player.gems;
-            
+            iconProfile = Player.icono.image;
+            iconos = Iconos.iconos_;
         }
 
         private void GoBack(object sender, RoutedEventArgs e)
@@ -110,10 +114,59 @@ namespace ProyectoDSI
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            int image = 0;
+            Button b = sender as Button;
+
+            switch (b.Name)
+            {
+                case "Primero":
+                    image = 0;
+                    break;
+                case "Segundo":
+                    image = 1;
+                    break;
+                case "Tercero":
+                    image = 2;
+                    break;
+                case "Cuarto":
+                    image = 3;
+                    break;
+                case "Quinto":
+                    image = 4;
+                    break;
+                case "Sexto":
+                    image = 5;
+                    break;
+                case "Septimo":
+                    image = 6;
+                    break;
+                case "Octavo":
+                    image = 7;
+                    break;
+                case "Noveno":
+                    image = 8;
+                    break;
+                case "Decimo":
+                    image = 9;
+                    break;
+            }
+
+            Player.icono = Iconos.iconos_[image];
+
+            iconProfile = Player.icono.image;
+
+            Image img = IconoPerfil as Image;
+
+            img.Source = new BitmapImage(new Uri("ms-appx:///" + iconProfile));
+        }
+
         private void WatchReplay_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Game));
         }
 
+        
     }
 }

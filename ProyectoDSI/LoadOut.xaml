@@ -35,12 +35,13 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid>
+    <Grid x:Name="Layout">
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="15"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -153,8 +154,8 @@
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <Viewbox Stretch="Uniform">
-                    <SymbolIcon Symbol="Contact"
-                                Foreground="Black"/>
+                    <!--<SymbolIcon Symbol="Contact"/>-->
+                    <Image x:Name="IconoPerfil" Source="{x:Bind iconProfile}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Viewbox>
                 <TextBlock Text="Player1"
                            Grid.Column="1"
@@ -216,9 +217,9 @@
                     Content="Sunglasses">
             </Button>
             <ListBox x:Name="SunglassesOptions" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
-                <ListBoxItem>Gafas1</ListBoxItem>
-                <ListBoxItem>Gafas2</ListBoxItem>
-                <ListBoxItem>Gafas3</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
             </ListBox>
             <Button x:Name="Gloves"
                     HorizontalAlignment="Left"
@@ -232,9 +233,9 @@
                     Content="Gloves">
             </Button>
             <ListBox x:Name="GlovesOptions" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
-                <ListBoxItem>Gafas1</ListBoxItem>
-                <ListBoxItem>Gafas2</ListBoxItem>
-                <ListBoxItem>Gafas3</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
             </ListBox>
             <Button x:Name="Shoes"
                     HorizontalAlignment="Left"
@@ -248,9 +249,9 @@
                     Content="Shoes">
             </Button>
             <ListBox x:Name="ShoesOptions" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
-                <ListBoxItem>Gafas1</ListBoxItem>
-                <ListBoxItem>Gafas2</ListBoxItem>
-                <ListBoxItem>Gafas3</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
             </ListBox>
 
 
@@ -265,19 +266,48 @@
                    
                    HorizontalAlignment="Stretch" 
                    VerticalAlignment="Stretch"/>
+        <Grid Grid.Row="3"
+              Grid.Column="0"
+              Grid.ColumnSpan="3">
 
-        <ListView x:Name="CharactersListView"
-                  Grid.Row="3"
-                  Grid.Column="0"
-                  Background="BlueViolet"
-                  SelectionMode="Single">
-            <!--ItemsSource="{x:Bind charactersList}">-->
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Image x:Name="Character1"
+                   Grid.Column="0"
+                   Source="Assets/BlackPortrait.png" 
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"
+                   PointerPressed="ChangeCharacter"
+                   />
+            <Image x:Name="Character2"
+                   Grid.Column="1"
+                   Source="Assets/BlackPortrait.png" 
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"
+                   PointerPressed="ChangeCharacter"
+                   />
+            <Image x:Name="Character3"
+                   Grid.Column="2"
+                   Source="Assets/BlackPortrait.png" 
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"
+                   PointerPressed="ChangeCharacter"
+                   />
 
-        </ListView>
+            <Image x:Name="Character4"
+                   Grid.Column="3"
+                   Source="Assets/BlackPortrait.png" 
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"
+                   PointerPressed="ChangeCharacter"
+                   />
+        </Grid>
+        
     </Grid>
 </Page>

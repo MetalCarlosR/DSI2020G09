@@ -61,7 +61,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Image Source="./Assets/Coin.png" Width="50" Height="50"/>
-                        <TextBlock Grid.Column="1" Text="1530" FontSize="32" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="{x:Bind gold}" FontSize="32" VerticalAlignment="Center"/>
                     </Grid>
                 </Border>
                 <Border Grid.Column="1" Background="#33020404" BorderBrush="Black" BorderThickness="5">
@@ -71,7 +71,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Image Source="./Assets/Gem.png" Width="50" Height="50"/>
-                        <TextBlock Grid.Column="1" Text="565" FontSize="32" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="{x:Bind gemas}" FontSize="32" VerticalAlignment="Center"/>
                     </Grid>
                 </Border>
             </Grid>
@@ -83,7 +83,8 @@
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <Viewbox Stretch="Uniform">
-                    <SymbolIcon Symbol="Contact"/>
+                    <!--<SymbolIcon Symbol="Contact"/>-->
+                    <Image x:Name="IconoPerfil" Source="{x:Bind iconProfile}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Viewbox>
                 <TextBlock Text="Player1" Grid.Column="1" FontSize="32" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
             </Grid>

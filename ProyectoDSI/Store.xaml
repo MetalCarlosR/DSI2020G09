@@ -9,6 +9,11 @@
     RequestedTheme="Light"
     Background="AliceBlue">
 
+
+    <Page.Resources>
+        <SolidColorBrush x:Key="GoldColor" Color="Gold"/>
+        <SolidColorBrush x:Key="BlueColor" Color="CadetBlue"/>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -95,7 +100,9 @@
                         </Grid.ColumnDefinitions>
                         <Image 
                                Width="50"
-                               Height="50"/>
+                               Height="50"
+                            Source="Assets/Coin.png"
+                            />
                         <TextBlock x:Name="money" Grid.Column="1"
                                    Text="1530"
                                    FontSize="32"
@@ -113,7 +120,9 @@
                         </Grid.ColumnDefinitions>
                         <Image 
                                Width="50"
-                               Height="50"/>
+                               Height="50"
+                               Source="Assets/Gem.png"
+                            />
                         <TextBlock x:Name="gems" Grid.Column="1"
                                    Text="385"
                                    FontSize="32"
@@ -128,10 +137,10 @@
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <Viewbox Stretch="Uniform">
-                    <SymbolIcon Symbol="Contact"
-                                Foreground="Black"/>
+                    <!--<SymbolIcon Symbol="Contact"/>-->
+                    <Image x:Name="IconoPerfil" Source="{x:Bind iconProfile}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Viewbox>
-                <TextBlock x:Name="Player" 
+                <TextBlock x:Name="playerText" 
                            Text="Player1"
                            Grid.Column="1"
                            FontSize="32"
@@ -182,7 +191,7 @@
             Foreground="Black" Click="WindowClicked"
             />
 
-        <Grid x:Name="FeaturedOptions" Visibility="Collapsed"
+        <Grid x:Name="FeaturedOptions" Visibility="Visible"
             Grid.Row="2"
             Grid.Column="1"
             Grid.ColumnSpan="4">
@@ -204,37 +213,34 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="0.05*"/>
             </Grid.RowDefinitions>
-            <Rectangle x:Name="Prueba" Grid.Row="1"
-                           Grid.Column="7"
-                           Grid.RowSpan="3"
-                           Fill="Gold"
-                           >
-            </Rectangle>
-            <Rectangle Grid.Row="1"
-                           Grid.Column="1"
-                           Fill="BlueViolet"
-                    />
-            <Rectangle Grid.Row="3"
-                           Grid.Column="1"
-                           Fill="BlueViolet"
-                    />
-            <Rectangle Grid.Row="1"
-                           Grid.Column="3"
-                           Fill="BlueViolet"
-                    />
-            <Rectangle Grid.Row="3"
-                           Grid.Column="3"
-                           Fill="BlueViolet"
-                    />
-            <Rectangle Grid.Row="1"
-                           Grid.Column="5"
-                           Grid.RowSpan="3"
-                           Fill="CornflowerBlue"
-                    />
+            
+            <Button x:Name="BattlePass" Grid.Row="1" Grid.Column="7" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Gold">
+                <Image Source="{x:Bind items_[1].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Button>
+
+            <Button x:Name="Featured1" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
+                <Image Source="{x:Bind items_[8].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Button>
+
+            <Button x:Name="Featured2" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
+                <Image Source="{x:Bind items_[9].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Button>
+
+            <Button x:Name="Featured3" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
+                <Image Source="{x:Bind items_[10].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Button>
+
+            <Button x:Name="Featured4" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
+                <Image Source="{x:Bind items_[11].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Button>
+
+            <Button x:Name="Featured5" Grid.Row="1" Grid.Column="5" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
+                <Image Source="{x:Bind items_[12].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Button>
 
         </Grid>
 
-        <Grid x:Name="CharacterOptions" Visibility="Visible"
+        <Grid x:Name="CharacterOptions" Visibility="Collapsed"
             Grid.Row="2"
             Grid.Column="1"
             Grid.ColumnSpan="4">
@@ -259,27 +265,27 @@
             <Button x:Name="FeaturedCharacter" Grid.Row="1"
                            Grid.Column="7"
                            Grid.RowSpan="3" 
-                    Click="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/CharactersBattlePass.png" 
                        Stretch="UniformToFill"
                        HorizontalAlignment="Center">
                 </Image>
             </Button>
-            
+
             <Button x:Name="Character1" Grid.Row="1"
                            Grid.Column="1"
                            Grid.RowSpan="3" 
-                    Click="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/Character1.png" 
                        Stretch="UniformToFill" HorizontalAlignment="Center">
 
                 </Image>
             </Button>
-            
+
             <Button x:Name="Character2" Grid.Row="1"
                            Grid.Column="3"
                            Grid.RowSpan="3" 
-                    Click="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/Character2.png" 
                        Stretch="UniformToFill" HorizontalAlignment="Center">
 
@@ -288,7 +294,7 @@
 
             <Button x:Name="Character3" Grid.Row="1"
                            Grid.Column="5"
-                           Grid.RowSpan="3" Click="BuyCharacter">
+                           Grid.RowSpan="3" Click="BuyItem">
                 <Image Source="Assets/Character3.png" 
                        Stretch="UniformToFill"
                        HorizontalAlignment="Center">
@@ -324,7 +330,7 @@
                            Grid.Column="1"
                            Grid.ColumnSpan="3"
                     Background="CadetBlue"
-                    PointerPressed="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/Skin1.png" 
                        Stretch="UniformToFill" 
                        HorizontalAlignment="Center"
@@ -336,19 +342,19 @@
                     Grid.Row="3"
                     Grid.Column="3"
                     Background="BlueViolet"
-                    PointerPressed="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/Skin2.png" 
                        Stretch="UniformToFill" 
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
                 </Image>
             </Button>
-            
+
             <Button x:Name="Skin3" 
-                    Grid.Row="5"
+                    Grid.Row="3"
                     Grid.Column="1"
                     Background="BlueViolet"
-                    PointerPressed="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/Skin3.png" 
                        Stretch="UniformToFill" 
                        HorizontalAlignment="Center"
@@ -361,7 +367,7 @@
                            Grid.Column="5"
                            Grid.RowSpan="3"
                            Background="DarkSlateBlue"
-                    PointerPressed="BuyCharacter">
+                    Click="BuyItem">
                 <Image Source="Assets/Skin4.png" 
                        Stretch="UniformToFill" 
                        HorizontalAlignment="Center"
@@ -466,8 +472,8 @@
                         Margin="0,0,50,50"/>
 
             </Grid>
-            
+
         </StackPanel>
-        
+
     </Grid>
 </Page>

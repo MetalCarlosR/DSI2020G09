@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.ViewManagement;
+using Windows.System.Display;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,7 +35,6 @@ namespace ProyectoDSI
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            
         }
 
         private void GoBack(object sender, RoutedEventArgs e)
@@ -72,11 +73,11 @@ namespace ProyectoDSI
         }
         private void ButtonClick(object sender, RoutedEventArgs e)
         {
-            GeneralButton.Background = (SolidColorBrush)Resources["grayColor"];
-            VideoButton.Background = (SolidColorBrush)Resources["grayColor"];
-            AudioButton.Background = (SolidColorBrush)Resources["grayColor"];
-            AccesibilityButton.Background = (SolidColorBrush)Resources["grayColor"];
-            ControlsButton.Background = (SolidColorBrush)Resources["grayColor"];
+            GeneralButton.Background = (SolidColorBrush)Resources["blueColor"];
+            VideoButton.Background = (SolidColorBrush)Resources["blueColor"];
+            AudioButton.Background = (SolidColorBrush)Resources["blueColor"];
+            AccesibilityButton.Background = (SolidColorBrush)Resources["blueColor"];
+            ControlsButton.Background = (SolidColorBrush)Resources["blueColor"];
 
 
 
@@ -87,7 +88,6 @@ namespace ProyectoDSI
             VideoSettings.Visibility = Visibility.Collapsed;
 
             (sender as Button).Background = (SolidColorBrush)Resources["yellowColor"];
-
         }
     }
 }

@@ -26,8 +26,8 @@ namespace ProyectoDSI
     public sealed partial class Store : Page
     {
         Button lastClicked = null;
-        List<StoreItem> storeItems = null;
-        Items items = null;
+        string iconProfile;
+        List<StoreItem> items_;
         public Store()
         {
             this.InitializeComponent();
@@ -36,10 +36,13 @@ namespace ProyectoDSI
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            if (items == null)
-                items = new Items();
 
-            storeItems = items.items_;
+            items_ = Items.items_;
+            money.Text = Player.gold.ToString();
+            gems.Text = Player.gems.ToString();
+            iconProfile = Player.icono.image;
+
+
         }
 
         private void WindowClicked(object sender, RoutedEventArgs e)
@@ -49,27 +52,29 @@ namespace ProyectoDSI
             SkinsOptions.Visibility = Visibility.Collapsed;
             MadOptions.Visibility = Visibility.Collapsed;
 
-            Characters.Background = new SolidColorBrush(Colors.CadetBlue);
-            Skins.Background = new SolidColorBrush(Colors.CadetBlue);
-            MadCoins.Background = new SolidColorBrush(Colors.CadetBlue);
+            Featured.Background = (SolidColorBrush)Resources["BlueColor"];
+            Characters.Background = (SolidColorBrush)Resources["BlueColor"];
+            Skins.Background = (SolidColorBrush)Resources["BlueColor"];
+            MadCoins.Background = (SolidColorBrush)Resources["BlueColor"];
 
             Button b = sender as Button;
             switch(b.Name)
             {
                 case "Featured":
                     FeaturedOptions.Visibility = Visibility.Visible;
+                    Featured.Background = (SolidColorBrush)Resources["GoldColor"];
                     break;
                 case "Characters":
                     CharacterOptions.Visibility = Visibility.Visible;
-                    Characters.Background = new SolidColorBrush(Colors.MidnightBlue);
+                    Characters.Background = (SolidColorBrush)Resources["GoldColor"];
                     break;
                 case "Skins":
                     SkinsOptions.Visibility = Visibility.Visible;
-                    Skins.Background = new SolidColorBrush(Colors.MidnightBlue);
+                    Skins.Background = (SolidColorBrush)Resources["GoldColor"];
                     break;
                 case "MadCoins":
                     MadOptions.Visibility = Visibility.Visible;
-                    MadCoins.Background = new SolidColorBrush(Colors.MidnightBlue);
+                    MadCoins.Background = (SolidColorBrush)Resources["GoldColor"];
                     break;
             }
         }
@@ -81,12 +86,18 @@ namespace ProyectoDSI
 
         private void AddCharacterToLoadOut(object sender, RoutedEventArgs e)
         {
+            //buscamos el item que se quiere comprar dentro de la lista
             string button = lastClicked.Name;
-            StoreItem bought = storeItems.Find(x => x.name == button);
+            StoreItem bought = Items.items_.Find(x => x.name == button);
 
-            money.Text = (int.Parse(money.Text.ToString()) - bought.money).ToString();
-            gems.Text = (int.Parse(gems.Text.ToString()) - bought.gems).ToString();
-            items.buyItem(bought);
+            //se resta el gold y gemas que cuesta del jugador
+            Player.gold -= bought.money;
+            Player.gems -= bought.gems;
+            money.Text = Player.gold.ToString();
+            gems.Text = Player.gems.ToString();
+            Items.buyItem(bought);
+            bought.bought = true;
+
 
             lastClicked.Opacity = 0.75;
             BuyOption.Visibility = Visibility.Collapsed;
@@ -98,18 +109,16 @@ namespace ProyectoDSI
             lastClicked = null;
         }
 
-        private void BuyCharacter(object sender, RoutedEventArgs e)
+        private void BuyItem(object sender, RoutedEventArgs e)
         {
             lastClicked = sender as Button;
-            StoreItem bought = storeItems.Find(x => x.name == lastClicked.Name);
+            StoreItem bought = Items.items_.Find(x => x.name == lastClicked.Name);
             if (bought != null)
             {
                 if (!bought.bought && int.Parse(money.Text.ToString()) - bought.money >= 0 && int.Parse(gems.Text.ToString()) - bought.gems >= 0)
                 {
                     BuyOption.Visibility = Visibility.Visible;
-                    bought.bought = true;
                 }
-
             }
             else lastClicked = null;
         }

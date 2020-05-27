@@ -56,5 +56,46 @@
                 
             </Grid>
         </Grid>
+        <Grid x:Name="TabMenu" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".5*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width=".5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Background="White" Grid.Row="1" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"  FontSize="50" Text="xXGamerXx150" VerticalAlignment="Center" HorizontalAlignment="Center"> </TextBlock>
+                <TextBlock Grid.Row="1"  FontSize="50" Text="xXGamerXx1500" VerticalAlignment="Center" HorizontalAlignment="Center"> </TextBlock>
+                <TextBlock Grid.Row="2"  FontSize="50" Text="xXGamerXx15000" VerticalAlignment="Center" HorizontalAlignment="Center"> </TextBlock>
+                <TextBlock Grid.Row="3"  FontSize="50" Text="xXGamerXx150000" VerticalAlignment="Center" HorizontalAlignment="Center"> </TextBlock>
+                <TextBlock Grid.Row="4"  FontSize="50" Text="xXGamerXx1500000" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            </Grid>
+            <Grid Background="White" Grid.Row="1" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="1"  FontSize="50" Text="6/1/5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Row="0"  FontSize="50" Text="3/1/5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Row="2"  FontSize="50" Text="1/2/1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Row="3"  FontSize="50" Text="1/5/2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Grid.Row="4"  FontSize="50" Text="1/11/5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

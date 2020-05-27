@@ -8,7 +8,7 @@ namespace ProyectoDSI
 {
     public class StoreItem
     {
-        public enum Type { character, skin};
+        public enum Type { character, skin };
         public int id;
         public string name;
         public string image;
@@ -16,15 +16,16 @@ namespace ProyectoDSI
         public int gems;
         public bool bought;
         public Type type;
+        public string profImage;
 
         public StoreItem() { }
-        
+
     }
     class Items
     {
-        public Items() 
-        {
-            items_ = new List<StoreItem>()
+        public Items() { }
+
+        public static List<StoreItem> items_ = new List<StoreItem>()
         {
             new StoreItem()
             {
@@ -34,7 +35,8 @@ namespace ProyectoDSI
                 money = 50,
                 gems= 0,
                 bought = false,
-                type = StoreItem.Type.character
+                type = StoreItem.Type.character,
+                profImage = "Assets/Portrait1.png"
              },
 
             new StoreItem()
@@ -45,7 +47,9 @@ namespace ProyectoDSI
                 money = 50,
                 gems= 0,
                 bought = false,
-                type = StoreItem.Type.character
+                type = StoreItem.Type.character,
+                profImage = "Assets/Portrait2.png"
+
              },
 
             new StoreItem()
@@ -56,7 +60,9 @@ namespace ProyectoDSI
                 money = 50,
                 gems= 0,
                 bought = false,
-                type = StoreItem.Type.character
+                type = StoreItem.Type.character,
+                profImage = "Assets/Portrait3.png"
+
              },
 
             new StoreItem()
@@ -67,7 +73,8 @@ namespace ProyectoDSI
                 money = 50,
                 gems= 0,
                 bought = false,
-                type = StoreItem.Type.character
+                type = StoreItem.Type.character,
+                profImage = "Assets/Portrait4.png"
              },
 
             new StoreItem()
@@ -76,7 +83,7 @@ namespace ProyectoDSI
                 name = "Skin1",
                 image = "Assets/Skin1.png",
                 money = 0,
-                gems = 3,
+                gems = 100,
                 bought = false,
                 type = StoreItem.Type.skin
              },
@@ -87,51 +94,92 @@ namespace ProyectoDSI
                 name = "Skin2",
                 image = "Assets/Skin2.png",
                 money = 0,
-                gems = 3,
+                gems = 100,
                 bought = false,
                 type = StoreItem.Type.skin
              },
 
             new StoreItem()
             {
-                id = 0,
+                id = 6,
                 name = "Skin3",
                 image = "Assets/Skin3.png",
                 money = 0,
-                gems = 3,
+                gems = 100,
                 bought = false,
                 type = StoreItem.Type.skin
              },
 
             new StoreItem()
             {
-                id = 0,
+                id = 7,
                 name = "Skin4",
                 image = "Assets/Skin4.png",
                 money = 0,
-                gems = 3,
+                gems = 100,
                 bought = false,
                 type = StoreItem.Type.skin
              },
 
             new StoreItem()
             {
-                id = 0,
-                name = "SkinBattlePass",
-                image = "Assets/SkinBattlePass.png",
+                id = 8,
+                name = "Featured1",
+                image = "Assets/Featured1.png",
                 money = 0,
-                gems = 3,
+                gems = 100,
+                bought = false,
+                type = StoreItem.Type.skin
+             },
+            new StoreItem()
+            {
+                id = 9,
+                name = "Featured2",
+                image = "Assets/Featured2.png",
+                money = 0,
+                gems = 100,
+                bought = false,
+                type = StoreItem.Type.skin
+             },
+            new StoreItem()
+            {
+                id = 10,
+                name = "Featured3",
+                image = "Assets/Featured3.png",
+                money = 0,
+                gems = 100,
+                bought = false,
+                type = StoreItem.Type.skin
+             },
+            new StoreItem()
+            {
+                id = 11,
+                name = "Featured4",
+                image = "Assets/Featured4.png",
+                money = 0,
+                gems = 100,
+                bought = false,
+                type = StoreItem.Type.skin
+             },
+            new StoreItem()
+            {
+                id = 12,
+                name = "Featured5",
+                image = "Assets/Featured5.png",
+                money = 0,
+                gems = 100,
                 bought = false,
                 type = StoreItem.Type.skin
              }
         };
-            if (boughtItems_ == null) 
-                boughtItems_ = new List<StoreItem>();
-        }
-        public List<StoreItem> items_;
-        public static List<StoreItem> boughtItems_;
+        public static List<StoreItem> boughtItems_ = new List<StoreItem>();
         public static List<StoreItem> getBoughtItems() { return boughtItems_; }
 
-        public void buyItem(StoreItem item) { boughtItems_.Add(item); }
+        public static void buyItem(StoreItem item)
+        {
+            boughtItems_.Add(item);
+            items_.Remove(item);
+        }
+        
     }
 }

@@ -32,8 +32,9 @@ namespace ProyectoDSI
 
         private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs e)
         {
-            if (e.VirtualKey == Windows.System.VirtualKey.Escape) { 
-            
+            if (e.VirtualKey == Windows.System.VirtualKey.Escape)
+            {
+
                 if (PauseMenu.Visibility == Visibility.Collapsed)
                 {
                     PauseMenu.Visibility = Visibility.Visible;
@@ -43,8 +44,19 @@ namespace ProyectoDSI
                     PauseMenu.Visibility = Visibility.Collapsed;
                 }
             }
-        }
+            if (e.VirtualKey == Windows.System.VirtualKey.Tab)
+            {
 
+                if (TabMenu.Visibility == Visibility.Collapsed)
+                {
+                    TabMenu.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    TabMenu.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
         private void ExitClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));

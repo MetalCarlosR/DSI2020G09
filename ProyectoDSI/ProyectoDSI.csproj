@@ -128,6 +128,7 @@
     <Compile Include="HeaderExample.xaml.cs">
       <DependentUpon>HeaderExample.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Iconos.cs" />
     <Compile Include="LoadOut.xaml.cs">
       <DependentUpon>LoadOut.xaml</DependentUpon>
     </Compile>
@@ -154,6 +155,7 @@
     <Content Include="Assets\Barra1.png" />
     <Content Include="Assets\Barra2.png" />
     <Content Include="Assets\Barra3.png" />
+    <Content Include="Assets\BlackPortrait.png" />
     <Content Include="Assets\CarRender.png" />
     <Content Include="Assets\Character.png" />
     <Content Include="Assets\Character1.png" />
@@ -161,21 +163,38 @@
     <Content Include="Assets\Character3.png" />
     <Content Include="Assets\CharactersBattlePass.png" />
     <Content Include="Assets\Coin.png" />
+    <Content Include="Assets\Featured1.png" />
+    <Content Include="Assets\Featured2.png" />
+    <Content Include="Assets\Featured3.png" />
+    <Content Include="Assets\Featured4.png" />
+    <Content Include="Assets\Featured5.png" />
     <Content Include="Assets\Fondo.jpg" />
     <Content Include="Assets\Gem.png" />
     <Content Include="Assets\Grafitti1.png" />
     <Content Include="Assets\HealthBar.png" />
     <Content Include="Assets\icon.png" />
     <Content Include="Assets\icon2.png" />
-    <Content Include="Assets\Kara_TOKEN.png" />
+    <Content Include="Assets\Iconos\Icono1.png" />
+    <Content Include="Assets\Iconos\Icono10.png" />
+    <Content Include="Assets\Iconos\Icono2.png" />
+    <Content Include="Assets\Iconos\Icono3.png" />
+    <Content Include="Assets\Iconos\Icono4.png" />
+    <Content Include="Assets\Iconos\Icono5.png" />
+    <Content Include="Assets\Iconos\Icono6.png" />
+    <Content Include="Assets\Iconos\Icono7.png" />
+    <Content Include="Assets\Iconos\Icono8.png" />
+    <Content Include="Assets\Iconos\Icono9.png" />
     <Content Include="Assets\minimap.png" />
+    <Content Include="Assets\Portrait1.png" />
+    <Content Include="Assets\Portrait2.png" />
+    <Content Include="Assets\Portrait3.png" />
+    <Content Include="Assets\Portrait4.png" />
     <Content Include="Assets\Position.png" />
     <Content Include="Assets\RevolverheldUltimative.png" />
     <Content Include="Assets\Skin1.png" />
     <Content Include="Assets\Skin2.png" />
     <Content Include="Assets\Skin3.png" />
     <Content Include="Assets\Skin4.png" />
-    <Content Include="Assets\Token1.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -228,6 +247,7 @@
       <Version>6.2.9</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

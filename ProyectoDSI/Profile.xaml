@@ -87,7 +87,8 @@
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <Viewbox Stretch="Uniform">
-                    <SymbolIcon Symbol="Contact"/>
+                    <!--<SymbolIcon Symbol="Contact"/>-->
+                    <Image x:Name="IconoPerfil" Source="{x:Bind iconProfile}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Viewbox>
                 <TextBlock Text="Player1" Grid.Column="1" FontSize="32" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
             </Grid>
@@ -588,7 +589,49 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Grid x:Name="IconsPanel" Visibility="Collapsed" Grid.Row="2" Margin="50,50,50,0"></Grid>
+        <Grid x:Name="IconsPanel" Visibility="Collapsed" Grid.Row="2" Margin="50,50,50,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Click="Button_Click" x:Name="Primero">
+                <Image Source="{x:Bind iconos[0].image}"/>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Click="Button_Click" x:Name="Segundo">
+                <Image Source="{x:Bind iconos[1].image}"/>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Click="Button_Click" x:Name="Tercero">
+                <Image Source="{x:Bind iconos[2].image}"/>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Click="Button_Click" x:Name="Cuarto">
+                <Image Source="{x:Bind iconos[3].image}"/>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Click="Button_Click" x:Name="Quinto">
+                <Image Source="{x:Bind iconos[4].image}"/>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Click="Button_Click" x:Name="Sexto">
+                <Image Source="{x:Bind iconos[5].image}"/>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Click="Button_Click" x:Name="Septimo">
+                <Image Source="{x:Bind iconos[6].image}"/>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Click="Button_Click" x:Name="Octavo">
+                <Image Source="{x:Bind iconos[7].image}"/>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Click="Button_Click" x:Name="Noveno">
+                <Image Source="{x:Bind iconos[8].image}"/>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Click="Button_Click" x:Name="Decimo">
+                <Image Source="{x:Bind iconos[9].image}"/>
+            </Button>
+        </Grid>
 
     </Grid>
 </Page>
