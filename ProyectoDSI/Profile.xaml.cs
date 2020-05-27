@@ -24,6 +24,8 @@ namespace ProyectoDSI
     {
 
         int Gold, Gems;
+        string iconProfile;
+        List<Icono> iconos;
         public Profile()
         {
             this.InitializeComponent();
@@ -34,7 +36,8 @@ namespace ProyectoDSI
             base.OnNavigatedTo(e);
             Gold = Player.gold;
             Gems = Player.gems;
-            
+            iconProfile = Player.icono.image;
+            iconos = Iconos.iconos_;
         }
 
         private void GoBack(object sender, RoutedEventArgs e)

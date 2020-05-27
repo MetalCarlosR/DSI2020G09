@@ -128,6 +128,7 @@
     <Compile Include="HeaderExample.xaml.cs">
       <DependentUpon>HeaderExample.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Iconos.cs" />
     <Compile Include="LoadOut.xaml.cs">
       <DependentUpon>LoadOut.xaml</DependentUpon>
     </Compile>
@@ -168,7 +169,16 @@
     <Content Include="Assets\HealthBar.png" />
     <Content Include="Assets\icon.png" />
     <Content Include="Assets\icon2.png" />
-    <Content Include="Assets\Kara_TOKEN.png" />
+    <Content Include="Assets\Iconos\Icono1.png" />
+    <Content Include="Assets\Iconos\Icono10.png" />
+    <Content Include="Assets\Iconos\Icono11.png" />
+    <Content Include="Assets\Iconos\Icono2.png" />
+    <Content Include="Assets\Iconos\Icono3.png" />
+    <Content Include="Assets\Iconos\Icono4.png" />
+    <Content Include="Assets\Iconos\Icono5.png" />
+    <Content Include="Assets\Iconos\Icono7.png" />
+    <Content Include="Assets\Iconos\Icono8.png" />
+    <Content Include="Assets\Iconos\Icono9.png" />
     <Content Include="Assets\minimap.png" />
     <Content Include="Assets\Portrait1.png" />
     <Content Include="Assets\Portrait2.png" />
@@ -180,7 +190,6 @@
     <Content Include="Assets\Skin2.png" />
     <Content Include="Assets\Skin3.png" />
     <Content Include="Assets\Skin4.png" />
-    <Content Include="Assets\Token1.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -233,6 +242,7 @@
       <Version>6.2.9</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

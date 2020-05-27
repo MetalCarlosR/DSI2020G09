@@ -96,7 +96,6 @@ namespace ProyectoDSI
         {
             ApplicationView view = ApplicationView.GetForCurrentView();
             if (DisplaySize.IsChecked == true) view.TryEnterFullScreenMode();
-            else view.ExitFullScreenMode();
         }
     }
 }

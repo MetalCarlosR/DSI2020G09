@@ -100,7 +100,9 @@
                         </Grid.ColumnDefinitions>
                         <Image 
                                Width="50"
-                               Height="50"/>
+                               Height="50"
+                            Source="Assets/Coin.png"
+                            />
                         <TextBlock x:Name="money" Grid.Column="1"
                                    Text="1530"
                                    FontSize="32"
@@ -118,7 +120,9 @@
                         </Grid.ColumnDefinitions>
                         <Image 
                                Width="50"
-                               Height="50"/>
+                               Height="50"
+                               Source="Assets/Gem.png"
+                            />
                         <TextBlock x:Name="gems" Grid.Column="1"
                                    Text="385"
                                    FontSize="32"

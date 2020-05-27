@@ -29,6 +29,7 @@ namespace ProyectoDSI
         Dictionary<int, ImageSource> grafittis = new Dictionary<int, ImageSource>();
         //This bools defines if we show daile or weekly chalenges
         bool daily = true; //false means weekly
+        int gold, gemas;
 
         public BattlePass()
         {
@@ -44,6 +45,8 @@ namespace ProyectoDSI
             skins.Add(3, new BitmapImage(new Uri("ms-appx:///Assets/Skin4.png", UriKind.Absolute)));
 
             grafittis.Add(0, new BitmapImage(new Uri("ms-appx:///Assets/Grafitti1.png", UriKind.Absolute)));
+            gemas = Player.gems;
+            gold = Player.gold;
             daily = true;
             ShowChallenges();
 

@@ -87,7 +87,8 @@
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <Viewbox Stretch="Uniform">
-                    <SymbolIcon Symbol="Contact"/>
+                    <!--<SymbolIcon Symbol="Contact"/>-->
+                    <Image Source="{x:Bind iconProfile}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Viewbox>
                 <TextBlock Text="Player1" Grid.Column="1" FontSize="32" VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
             </Grid>
@@ -142,7 +143,7 @@
             BorderThickness="3" 
             Click="WindowClicked"/>
         </Grid>
-        <Grid x:Name="OverviewPanel" Visibility="Visible" Grid.Row="2" Margin="50,50,50,0">
+        <Grid x:Name="OverviewPanel" Visibility="Collapsed" Grid.Row="2" Margin="50,50,50,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition/>
@@ -588,7 +589,22 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Grid x:Name="IconsPanel" Visibility="Collapsed" Grid.Row="2" Margin="50,50,50,0"></Grid>
+        <Grid x:Name="IconsPanel" Visibility="Visible" Grid.Row="2" Margin="50,50,50,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent">
+                <Image Source="{x:Bind iconos[0].image}"/>
+            </Button>
+        </Grid>
 
     </Grid>
 </Page>
