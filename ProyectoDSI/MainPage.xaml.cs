@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0xc0a
@@ -37,6 +37,12 @@ namespace ProyectoDSI
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            if (Player.character != null)
+            {
+                PlayerCharacter.Source = new BitmapImage(new Uri("ms-appx:///" + Player.character.image));
+                PlayerCharacter.Width = 600;
+                PlayerCharacter.Height= 600;
+            }
             base.OnNavigatedTo(e);
             setRole();
             foreach(Friend f in Friends.friends_)

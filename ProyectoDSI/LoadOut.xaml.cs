@@ -45,6 +45,7 @@ namespace ProyectoDSI
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            if(Player.character != null) Selected.Source = new BitmapImage(new Uri("ms-appx:///" + Player.character.image));
             setRole();
             iconProfile = Player.icono.image;
             money.Text = Player.gold.ToString();
@@ -231,6 +232,7 @@ namespace ProyectoDSI
             Image img = sender as Image;
             if (img.Tag.ToString() != "-1")
             {
+                Player.character = characters_[Int32.Parse(img.Tag.ToString())];
                 if (changingCharacter) Selected.Source = new BitmapImage(new Uri("ms-appx:///" + characters_[Int32.Parse(img.Tag.ToString())].image));
                 else Back.Source = new BitmapImage(new Uri("ms-appx:///" + characters_[Int32.Parse(img.Tag.ToString())].image));
             }

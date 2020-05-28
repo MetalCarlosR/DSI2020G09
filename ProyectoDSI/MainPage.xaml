@@ -94,7 +94,7 @@
                 </Viewbox>
 
                 <!--Personaje Central-->
-                <Image Source="./Assets/Character.png" Width="600" Canvas.Top="350" Canvas.Left="660"/>
+                <Image x:Name="PlayerCharacter" Source="./Assets/Character.png" Width="600" Height="600" Canvas.Top="350" Canvas.Left="660"/>
                 <TextBlock Text="Player 1" Grid.Row="2" Canvas.Left="910" Canvas.Top="300" FontSize="32"/>
                 <Viewbox Canvas.Left="1040" Canvas.Top="300" Height="45" Width="45" VerticalAlignment="Top">
                     <SymbolIcon Symbol="Clear"/>

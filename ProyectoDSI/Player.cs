@@ -77,6 +77,8 @@ namespace ProyectoDSI
 
         public static int role = 0;
 
+        public static StoreItem character = null;
+
         public static Icono icono { get; set; } = Iconos.iconos_[0];
 
         public static List<Challenge> dailyChallenge = new List<Challenge>()
