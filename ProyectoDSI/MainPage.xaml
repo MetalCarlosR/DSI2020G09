@@ -75,37 +75,41 @@
             </Grid.ColumnDefinitions>
 
             <!--Imagenes, en el juego seria el propio motor de renderizado-->
-            <Image Source="./Assets/Fondo.jpg" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4" Stretch="Fill"/>
-            <Image Source="./Assets/CarRender.png" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4" Margin="0, 0, 0, 200"/>
-            <Image Source="./Assets/Character.png"  Stretch="Uniform" Grid.Row="1" Margin="188,92,907,245" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <TextBlock Text="Player 2" Grid.Row="1" Margin="335,96,0,235" Grid.ColumnSpan="2" HorizontalAlignment="Left" FontSize="32" Grid.RowSpan="2"/>
-            <Viewbox Grid.Row="1" Grid.Column="1" Margin="83,99,1006,0" Height="36" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" >
-                <SymbolIcon Symbol="Accept"/>
-            </Viewbox>
-            <Viewbox Grid.Row="1" Margin="287,99,52,0" Height="36" Width="36" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" >
-                <SymbolIcon Symbol="Flag"/>
-            </Viewbox>
-            <Viewbox Grid.Row="1" Margin="373,63,1091,0" Height="36" Width="36" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Grid.ColumnSpan="2" >
-                <SymbolIcon Symbol="Repair"/>
-            </Viewbox>
+            <Canvas Grid.RowSpan="4" Grid.ColumnSpan="2">
+                <Image Source="./Assets/Fondo.jpg" Canvas.Top="-100"/>
+                <!--Coche-->
+                <Image Source="./Assets/CarRender.png" Stretch="Fill" Canvas.Left="280" Canvas.Top="50" Width="1400" Grid.RowSpan="4"/>
+                
+                <!--Personaje Izquierda-->
+                <Image Source="./Assets/Character.png" Width="500" Canvas.Top="300" Canvas.Left="280"/>
+                <TextBlock Text="Player 2" Canvas.Left="480" Canvas.Top="250" FontSize="32"/>
+                <Viewbox Canvas.Left="610" Canvas.Top="250" Height="36">
+                    <SymbolIcon Symbol="Accept"/>
+                </Viewbox>
+                <Viewbox Canvas.Left="430" Canvas.Top="250" Height="36">
+                    <SymbolIcon Symbol="Flag"/>
+                </Viewbox>
+                <Viewbox Canvas.Left="510" Canvas.Top="200" Height="36" Width="36" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111" Grid.ColumnSpan="2" >
+                    <SymbolIcon Symbol="Repair"/>
+                </Viewbox>
 
-            <Image Source="./Assets/Character.png" Grid.Row="2" Grid.Column="1" Margin="0,70,423,82" Stretch="Uniform"/>
-            <TextBlock Text="Player 1" Grid.Row="2" Grid.Column="1" Margin="264,27,0,89" HorizontalAlignment="Left" FontSize="32"/>
-            <Viewbox Grid.Row="2" Grid.Column="1" Margin="380,27,700,0" Height="45" Width="45" VerticalAlignment="Top">
-                <SymbolIcon Symbol="Clear"/>
-            </Viewbox>
-            <Viewbox Grid.Row="1" Grid.Column="1" Margin="314,112,766,0" Height="45" Width="45" VerticalAlignment="Top" Grid.RowSpan="2">
-                <SymbolIcon x:Name="ActualRolIcon" Symbol="Target"/>
-            </Viewbox>
+                <!--Personaje Central-->
+                <Image Source="./Assets/Character.png" Width="600" Canvas.Top="350" Canvas.Left="660"/>
+                <TextBlock Text="Player 1" Grid.Row="2" Canvas.Left="910" Canvas.Top="300" FontSize="32"/>
+                <Viewbox Canvas.Left="1040" Canvas.Top="300" Height="45" Width="45" VerticalAlignment="Top">
+                    <SymbolIcon Symbol="Clear"/>
+                </Viewbox>
+                <Viewbox Canvas.Left="940" Canvas.Top="250" Height="45" Width="45" VerticalAlignment="Top" Grid.RowSpan="2">
+                    <SymbolIcon x:Name="ActualRolIcon" Symbol="Target"/>
+                </Viewbox>
+            </Canvas>
+            
+
+            
 
             <Button Grid.Row="2" Grid.Column="1" Margin="760,187,0,0" VerticalAlignment="Top" Height="90" Width="90" Click="ShowFriendList">
                 <Viewbox>
                     <SymbolIcon Symbol="AddFriend"/>
-                </Viewbox>
-            </Button>
-            <Button Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Margin="314,616,0,0" VerticalAlignment="Top" Height="90" Width="90" FlyoutBase.AttachedFlyout="{StaticResource RolsFlyout}" Tapped="FriendsList_Tapped">
-                <Viewbox>
-                    <SymbolIcon Symbol="Sync"/>
                 </Viewbox>
             </Button>
 
@@ -314,8 +318,8 @@
             </Grid>
         </Grid>
 
-        <!--PopUp eliminar un amigo-->
-        <Grid x:Name="RemoveFriendPopUp" Visibility="Collapsed">
+        <!--PopUp eliminar un amigo y boton de cambiar de rol-->
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -326,7 +330,7 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Row="1" Grid.Column="1">
+            <Grid x:Name="RemoveFriendPopUp" Grid.Row="1" Grid.Column="1" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -383,7 +387,11 @@
                             Click="OpenRemoveFriendPopUp"/>
                 </Grid>
             </Grid>
+            <Button Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="90" Width="90" Margin="0,0,0,10" FlyoutBase.AttachedFlyout="{StaticResource RolsFlyout}" Tapped="FriendsList_Tapped">
+                <Viewbox>
+                    <SymbolIcon Symbol="Sync"/>
+                </Viewbox>
+            </Button>
         </Grid>
-
     </Grid>
 </Page>
