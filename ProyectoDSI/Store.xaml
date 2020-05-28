@@ -222,23 +222,23 @@
             <TextBlock Grid.Row="3" Grid.Column="7" VerticalAlignment="Bottom" FontSize="70" FontFamily="Impact" Foreground="Black" Text="BATTLE PASS" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center"/>
 
             <Button x:Name="Featured1" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="BuyItem">
-                <Image Source="{x:Bind items_[8].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image Source="{x:Bind items_[8].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="{x:Bind items_[8].bought}"/>
             </Button>
 
             <Button x:Name="Featured2" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="BuyItem">
-                <Image Source="{x:Bind items_[9].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image Source="{x:Bind items_[9].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="{x:Bind items_[9].bought}"/>
             </Button>
 
             <Button x:Name="Featured3" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="BuyItem">
-                <Image Source="{x:Bind items_[10].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image Source="{x:Bind items_[10].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="{x:Bind items_[10].bought}"/>
             </Button>
 
             <Button x:Name="Featured4" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="BuyItem">
-                <Image Source="{x:Bind items_[11].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image Source="{x:Bind items_[11].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="{x:Bind items_[11].bought}"/>
             </Button>
 
             <Button x:Name="Featured5" Grid.Row="1" Grid.Column="5" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Click="BuyItem">
-                <Image Source="{x:Bind items_[12].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image Source="{x:Bind items_[12].image}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="{x:Bind items_[12].bought}"/>
             </Button>
 
         </Grid>
@@ -265,13 +265,14 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="0.05*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="FeaturedCharacter" Grid.Row="1"
+            <Button x:Name="Character4" Grid.Row="1"
                            Grid.Column="7"
                            Grid.RowSpan="3" 
                     Click="BuyItem">
                 <Image Source="{x:Bind items_[3].image}" 
                        Stretch="UniformToFill"
-                       HorizontalAlignment="Center">
+                       HorizontalAlignment="Center"
+                       Opacity="{x:Bind items_[3].bought}">
                 </Image>
             </Button>
 
@@ -280,7 +281,8 @@
                            Grid.RowSpan="3" 
                     Click="BuyItem">
                 <Image Source="{x:Bind items_[0].image}" 
-                       Stretch="UniformToFill" HorizontalAlignment="Center">
+                       Stretch="UniformToFill" HorizontalAlignment="Center"
+                       Opacity="{x:Bind items_[0].bought}">
 
                 </Image>
             </Button>
@@ -290,7 +292,8 @@
                            Grid.RowSpan="3" 
                     Click="BuyItem">
                 <Image Source="{x:Bind items_[1].image}" 
-                       Stretch="UniformToFill" HorizontalAlignment="Center">
+                       Stretch="UniformToFill" HorizontalAlignment="Center"
+                       Opacity="{x:Bind items_[1].bought}">
 
                 </Image>
             </Button>
@@ -300,7 +303,8 @@
                            Grid.RowSpan="3" Click="BuyItem">
                 <Image Source="{x:Bind items_[2].image}" 
                        Stretch="UniformToFill"
-                       HorizontalAlignment="Center">
+                       HorizontalAlignment="Center"
+                       Opacity="{x:Bind items_[2].bought}">
                 </Image>
             </Button>
 
@@ -333,10 +337,11 @@
                            Grid.Column="1"
                            Grid.ColumnSpan="3"
                     Click="BuyItem">
-                <Image Source="Assets/Skin1.png" 
+                <Image Source="{x:Bind items_[4].image}" 
                        Stretch="UniformToFill" 
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Center">
+                       VerticalAlignment="Center"
+                       Opacity="{x:Bind items_[4].bought}">
                 </Image>
             </Button>
 
@@ -344,10 +349,11 @@
                     Grid.Row="3"
                     Grid.Column="3"
                     Click="BuyItem">
-                <Image Source="Assets/Skin2.png" 
+                <Image Source="{x:Bind items_[5].image}" 
                        Stretch="UniformToFill" 
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Center">
+                       VerticalAlignment="Center"
+                       Opacity="{x:Bind items_[5].bought}">
                 </Image>
             </Button>
 
@@ -355,10 +361,11 @@
                     Grid.Row="3"
                     Grid.Column="1"
                     Click="BuyItem">
-                <Image Source="Assets/Skin3.png" 
+                <Image Source="{x:Bind items_[6].image}"
                        Stretch="UniformToFill" 
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Center">
+                       VerticalAlignment="Center"
+                       Opacity="{x:Bind items_[6].bought}">
                 </Image>
             </Button>
 
@@ -367,10 +374,11 @@
                            Grid.Column="5"
                            Grid.RowSpan="3"
                     Click="BuyItem">
-                <Image Source="Assets/Skin4.png" 
+                <Image Source="{x:Bind items_[7].image}"
                        Stretch="UniformToFill" 
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Center">
+                       VerticalAlignment="Center"
+                       Opacity="{x:Bind items_[7].bought}">
                 </Image>
             </Button>
 

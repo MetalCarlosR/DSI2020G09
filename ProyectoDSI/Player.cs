@@ -75,6 +75,8 @@ namespace ProyectoDSI
         public static int gold { get; set; } = 1530;
         public static int gems { get; set; } = 565;
 
+        public static int role = 0;
+
         public static Icono icono { get; set; } = Iconos.iconos_[0];
 
         public static List<Challenge> dailyChallenge = new List<Challenge>()

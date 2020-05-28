@@ -38,6 +38,7 @@ namespace ProyectoDSI
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            setRole();
             foreach(Friend f in Friends.friends_)
             {
                 friendsList.Add(f);
@@ -191,19 +192,38 @@ namespace ProyectoDSI
             OpenRemoveFriendPopUp(sender, e);
         }
 
+        private void setRole()
+        {
+            switch (Player.role)
+            {
+                case 0:
+                    ActualRolIcon.Symbol = Windows.UI.Xaml.Controls.Symbol.Target;
+                    break;
+                case 1:
+                    ActualRolIcon.Symbol = Windows.UI.Xaml.Controls.Symbol.Repair;
+                    break;
+                case 2:
+                    ActualRolIcon.Symbol = Windows.UI.Xaml.Controls.Symbol.Directions;
+                    break;
+            }
+        }
+
         private void ChangeRolDriver(object sender, RoutedEventArgs e)
         {
             ActualRolIcon.Symbol = Windows.UI.Xaml.Controls.Symbol.Target;
+            Player.role = 0;
         }
 
         private void ChangeRolSupport(object sender, RoutedEventArgs e)
         {
             ActualRolIcon.Symbol = Windows.UI.Xaml.Controls.Symbol.Repair;
+            Player.role = 1;
         }
 
         private void ChangeRolCopilot(object sender, RoutedEventArgs e)
         {
             ActualRolIcon.Symbol = Windows.UI.Xaml.Controls.Symbol.Directions;
+            Player.role = 2;
         }
     }
 }

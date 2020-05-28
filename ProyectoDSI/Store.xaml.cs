@@ -100,10 +100,9 @@ namespace ProyectoDSI
             money.Text = Player.gold.ToString();
             gems.Text = Player.gems.ToString();
             Items.buyItem(bought);
-            bought.bought = true;
+            bought.bought = 0.75f;
 
-
-            lastClicked.Opacity = 0.75;
+            lastClicked.Opacity = bought.bought;
             BuyOption.Visibility = Visibility.Collapsed;
         }
 
@@ -119,7 +118,7 @@ namespace ProyectoDSI
             StoreItem bought = Items.items_.Find(x => x.name == lastClicked.Name);
             if (bought != null)
             {
-                if (!bought.bought && int.Parse(money.Text.ToString()) - bought.money >= 0 && int.Parse(gems.Text.ToString()) - bought.gems >= 0)
+                if (bought.bought == 1 && int.Parse(money.Text.ToString()) - bought.money >= 0 && int.Parse(gems.Text.ToString()) - bought.gems >= 0)
                 {
                     BuyingItem.Source = new BitmapImage(new Uri("ms-appx:///" + bought.image));
 

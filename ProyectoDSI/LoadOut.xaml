@@ -41,7 +41,7 @@
             <RowDefinition Height="15"/>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="1"/>
+            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -121,8 +121,11 @@
                         </Grid.ColumnDefinitions>
                         <Image 
                                Width="50"
-                               Height="50"/>
-                        <TextBlock Grid.Column="1"
+                               Height="50"
+                                Source="Assets/Coin.png"
+                            />
+                        <TextBlock x:Name="money"
+                                   Grid.Column="1"
                                    Text="1530"
                                    FontSize="32"
                                    VerticalAlignment="Center"/>
@@ -139,8 +142,11 @@
                         </Grid.ColumnDefinitions>
                         <Image 
                                Width="50"
-                               Height="50"/>
-                        <TextBlock Grid.Column="1"
+                               Height="50"
+                                Source="Assets/Gem.png"
+                            />
+                        <TextBlock x:Name="gems"
+                                   Grid.Column="1"
                                    Text="385"
                                    FontSize="32"
                                    VerticalAlignment="Center"/>
@@ -169,7 +175,6 @@
                     Grid.Row="2"
                     Grid.Column="0" Grid.ColumnSpan="2">
             <Grid>
-
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200"/>
                     <RowDefinition Height="250"/>
@@ -198,14 +203,15 @@
             </Grid>
 
         </StackPanel>
-        <StackPanel x:Name ="Buttons"
+        <StackPanel x:Name ="ButtonsPlayer"
                     Grid.Row="2"
                     Grid.Column="1"
                     Spacing="25"
                     Orientation="Vertical"
+                    Visibility="Visible"
                     VerticalAlignment="Center">
 
-            <Button x:Name="Sunglasses"
+            <Button x:Name="Option1"
                     HorizontalAlignment="Left"
                     Width="300"
                     Height="100"
@@ -214,14 +220,14 @@
                     FontFamily="Comic Sans MS"
                     FontStyle="Oblique"
                     Click="buttonClicked"
-                    Content="Sunglasses">
+                    Content="Option1">
             </Button>
-            <ListBox x:Name="SunglassesOptions" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
+            <ListBox x:Name="Option1Options" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
                 <ListBoxItem>Upgrade</ListBoxItem>
                 <ListBoxItem>Upgrade</ListBoxItem>
                 <ListBoxItem>Upgrade</ListBoxItem>
             </ListBox>
-            <Button x:Name="Gloves"
+            <Button x:Name="Option2"
                     HorizontalAlignment="Left"
                     Width="300"
                     Height="100"
@@ -230,14 +236,14 @@
                     FontFamily="Comic Sans MS"
                     FontStyle="Oblique"
                     Click="buttonClicked"
-                    Content="Gloves">
+                    Content="Option2">
             </Button>
-            <ListBox x:Name="GlovesOptions" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
+            <ListBox x:Name="Option2Options" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
                 <ListBoxItem>Upgrade</ListBoxItem>
                 <ListBoxItem>Upgrade</ListBoxItem>
                 <ListBoxItem>Upgrade</ListBoxItem>
             </ListBox>
-            <Button x:Name="Shoes"
+            <Button x:Name="Option3"
                     HorizontalAlignment="Left"
                     Width="300"
                     Height="100"
@@ -246,9 +252,9 @@
                     FontFamily="Comic Sans MS"
                     FontStyle="Oblique"
                     Click="buttonClicked"
-                    Content="Shoes">
+                    Content="Option3">
             </Button>
-            <ListBox x:Name="ShoesOptions" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
+            <ListBox x:Name="Option3Options" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
                 <ListBoxItem>Upgrade</ListBoxItem>
                 <ListBoxItem>Upgrade</ListBoxItem>
                 <ListBoxItem>Upgrade</ListBoxItem>
@@ -256,6 +262,64 @@
 
 
         </StackPanel>
+        <StackPanel x:Name ="ButtonsCar"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Spacing="25"
+                    Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    Visibility="Collapsed">
+
+            <Button x:Name="Engine"
+                    HorizontalAlignment="Left"
+                    Width="300"
+                    Height="100"
+                    Foreground="Black"
+                    FontSize="50"
+                    FontFamily="Comic Sans MS"
+                    FontStyle="Oblique"
+                    Click="buttonClicked1"
+                    Content="Engine">
+            </Button>
+            <ListBox x:Name="EngineOptions" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+            </ListBox>
+            <Button x:Name="Chasis"
+                    HorizontalAlignment="Left"
+                    Width="300"
+                    Height="100"
+                    Foreground="Black"
+                    FontSize="50"
+                    FontFamily="Comic Sans MS"
+                    FontStyle="Oblique"
+                    Click="buttonClicked1"
+                    Content="Chasis">
+            </Button>
+            <ListBox x:Name="ChasisOptions" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+            </ListBox>
+            <Button x:Name="Wheels"
+                    HorizontalAlignment="Left"
+                    Width="300"
+                    Height="100"
+                    Foreground="Black"
+                    FontSize="50"
+                    FontFamily="Comic Sans MS"
+                    FontStyle="Oblique"
+                    Click="buttonClicked1"
+                    Content="Wheels">
+            </Button>
+            <ListBox x:Name="WheelsOtions" Background="AliceBlue" Visibility="Collapsed" Foreground="Black" Margin="50,0,0,0" >
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+                <ListBoxItem>Upgrade</ListBoxItem>
+            </ListBox>
+        </StackPanel>
+        <TextBlock x:Name="Role" Grid.Row="2" Grid.Column="1" FontSize="70" VerticalAlignment="Top" HorizontalAlignment="Center" Text="ROLE"/>
         <Rectangle x:Name="ButtonsBox"
                    Grid.Row="2" 
                    Grid.RowSpan="2"
@@ -266,16 +330,16 @@
                    
                    HorizontalAlignment="Stretch" 
                    VerticalAlignment="Stretch"/>
+
         <Grid Grid.Row="3"
               Grid.Column="0"
-              Grid.ColumnSpan="3">
+              Grid.RowSpan="2">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             
             <Image x:Name="Character1"
@@ -283,6 +347,7 @@
                    Source="Assets/BlackPortrait.png" 
                    VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch"
+                   Tag="-1"
                    PointerPressed="ChangeCharacter"
                    />
             <Image x:Name="Character2"
@@ -290,6 +355,7 @@
                    Source="Assets/BlackPortrait.png" 
                    VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch"
+                   Tag="-1"
                    PointerPressed="ChangeCharacter"
                    />
             <Image x:Name="Character3"
@@ -297,6 +363,7 @@
                    Source="Assets/BlackPortrait.png" 
                    VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch"
+                   Tag="-1"
                    PointerPressed="ChangeCharacter"
                    />
 
@@ -305,6 +372,7 @@
                    Source="Assets/BlackPortrait.png" 
                    VerticalAlignment="Stretch"
                    HorizontalAlignment="Stretch"
+                   Tag="-1"
                    PointerPressed="ChangeCharacter"
                    />
         </Grid>
