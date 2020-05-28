@@ -134,7 +134,7 @@
                 <Border Grid.Row="1" Grid.RowSpan="10" Grid.ColumnSpan="2" BorderThickness="4" BorderBrush="Gray"></Border>
 
             </Grid>
-            <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid x:Name="BattleBar" Grid.Row="2" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1.4*"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
@@ -169,28 +169,46 @@
                 <TextBlock Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center"> 8</TextBlock>
                 <TextBlock Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center"> 9</TextBlock>
 
-                <Button Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Tag = "0" Click="ShowSkin"> Skin</Button>
-                <Button Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Tag = "0" Click="ShowCharacter"> Character</Button>
-                <Button Grid.Row="1" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" Tag = "1" Click="ShowSkin"> Skin</Button>
+                <Button Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Tag = "5" Click="ShowSkin" Background="Transparent">
+                    <Image Source="{x:Bind skins[5]}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Tag = "0" Click="ShowCharacter" Background="Transparent">
+                    <Image Source="{x:Bind characters[0]}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Tag = "6" Click="ShowSkin" Background="Transparent">
+                    <Image Source="{x:Bind skins[6]}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </Button>
 
-                <Button Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="0" Click="ShowSkin"> Skin</Button>
-                <Button Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="2" Click="ShowVoice"> Voice</Button>
-                <Button Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="1" Click="ShowSkin"> Skin</Button>
-                <Button Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="2" Click="ShowSkin"> Skin</Button>
-                <Button Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="0" Click="ShowGrafitti"> Grafitti</Button>
-                <Button Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="3" Click="ShowSkin"> Skin</Button>
-                <Button Grid.Row="2" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="3" Click="ShowSkin"> Skin</Button>
-                <Button Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="3" Click="ShowVoice"> Voice</Button>
-                <Button Grid.Row="2" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="3" Click="ShowSkin">Skin</Button>
+                <Button Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Tag="0" Click="ShowSkin" Background="Transparent">
+                    <Image Source="{x:Bind skins[0]}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Tag="2" Click="ShowCharacter" Background="Transparent">
+                    <Image Source="{x:Bind characters[2]}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </Button>
+                <Button  Grid.Row="2" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Tag="1" Click="ShowSkin" Background="Transparent">
+                    <Image Source="{x:Bind skins[1]}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Tag="2" Click="ShowSkin" Background="Transparent">
+                    <Image Source="{x:Bind skins[2]}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Tag="0" Click="ShowGrafitti" Background="Transparent">
+                    <Image Source="{x:Bind grafittis[0]}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Tag="3" Click="ShowSkin" Background="Transparent">
+                    <Image Source="{x:Bind skins[3]}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Tag="4" Click="ShowSkin" Background="Transparent">
+                    <Image Source="{x:Bind skins[4]}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Tag="3" Click="ShowCharacter" Background="Transparent">
+                    <Image Source="{x:Bind characters[3]}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="9" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Tag="7" Click="ShowSkin" Background="Transparent">
+                    <Image Source="{x:Bind skins[7]}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </Button>
 
             </Grid>
-            <Canvas Grid.Column="1">
-                <Image x:Name="displayImage" Source="/Assets/CarRender.png" Height="400" Width="740"></Image>
-                <!--<Image  Source="/Assets/Character1.png" Height="583" Width="740" ></Image>
-                <Image  Source="/Assets/Character2.png" Height="583" Width="740" ></Image>
-                <Image  Source="/Assets/Character3.png" Height="583" Width="740" ></Image>
-                <Image  Source="/Assets/CharactersBattlePass.png" Height="583" Width="740" ></Image>-->
-            </Canvas>
+            <Image Grid.Column="1" x:Name="displayImage" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></Image>
         </Grid>
 
     </Grid>

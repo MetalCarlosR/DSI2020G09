@@ -54,15 +54,17 @@ namespace ProyectoDSI
 
     struct Challenge
     {
-        public Challenge(string s, int acV, int mV)
+        public Challenge(string s, int acV, int mV, bool com)
         {
             message = s;
             actualValue = acV;
             maxValue = mV;
+            completed = com;
         }
         public string message;
         public int actualValue;
         public int maxValue;
+        public bool completed;
     }
 
     // Best if singleton
@@ -77,18 +79,18 @@ namespace ProyectoDSI
 
         public static List<Challenge> dailyChallenge = new List<Challenge>()
         {
-            new Challenge("Play one game", 1,1),
-            new Challenge("Drive 10 km",7,10),
-            new Challenge("Kill 10 players", 10,10),
-            new Challenge("Get top 3 in one game", 1,1)
+            new Challenge("Play one game", 1,1 , true),
+            new Challenge("Drive 10 km",7,10 , false),
+            new Challenge("Kill 10 players", 10,10 , true),
+            new Challenge("Get top 3 in one game", 1,1 , true)
         };
 
         public static List<Challenge> weeklyChallenge = new List<Challenge>()
         {
-            new Challenge("Win 10 games", 9,10),
-            new Challenge("Win 3 Battle Royale games",3,3),
-            new Challenge("Play Driver role in 20 games",2,20),
-            new Challenge("Kill 150 players",134,150)
+            new Challenge("Win 10 games", 9,10, false),
+            new Challenge("Win 3 Battle Royale games",3,3 , true),
+            new Challenge("Play Driver role in 20 games",2,20, false),
+            new Challenge("Kill 150 players",134,150 , false)
         };
 
         public static void addGold(int g) { gold += g; }

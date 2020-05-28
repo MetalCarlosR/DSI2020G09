@@ -24,9 +24,9 @@ namespace ProyectoDSI
     /// </summary>
     public sealed partial class BattlePass : Page
     {
-        Dictionary<int, ImageSource> characters = new Dictionary<int, ImageSource>();
-        Dictionary<int, ImageSource> skins = new Dictionary<int, ImageSource>();
-        Dictionary<int, ImageSource> grafittis = new Dictionary<int, ImageSource>();
+        List<ImageSource> characters = new List<ImageSource>();
+        List<ImageSource> skins = new List<ImageSource>();
+        List<ImageSource> grafittis = new List<ImageSource>();
         //This bools defines if we show daile or weekly chalenges
         bool daily = true; //false means weekly
         int gold, gemas;
@@ -35,17 +35,21 @@ namespace ProyectoDSI
         public BattlePass()
         {
             this.InitializeComponent();
-            characters.Add(0, new BitmapImage(new Uri("ms-appx:///Assets/CharactersBattlePass.png", UriKind.Absolute)));
-            characters.Add(1, new BitmapImage(new Uri("ms-appx:///Assets/Character1.png", UriKind.Absolute)));
-            characters.Add(2, new BitmapImage(new Uri("ms-appx:///Assets/Character2.png", UriKind.Absolute)));
-            characters.Add(3, new BitmapImage(new Uri("ms-appx:///Assets/Character3.png", UriKind.Absolute)));
+            characters.Add(new BitmapImage(new Uri("ms-appx:///Assets/CharactersBattlePass.png", UriKind.Absolute)));
+            characters.Add(new BitmapImage(new Uri("ms-appx:///Assets/Character1.png", UriKind.Absolute)));
+            characters.Add(new BitmapImage(new Uri("ms-appx:///Assets/Character2.png", UriKind.Absolute)));
+            characters.Add(new BitmapImage(new Uri("ms-appx:///Assets/Character3.png", UriKind.Absolute)));
 
-            skins.Add(0, new BitmapImage(new Uri("ms-appx:///Assets/Skin1.png", UriKind.Absolute)));
-            skins.Add(1, new BitmapImage(new Uri("ms-appx:///Assets/Skin2.png", UriKind.Absolute)));
-            skins.Add(2, new BitmapImage(new Uri("ms-appx:///Assets/Skin3.png", UriKind.Absolute)));
-            skins.Add(3, new BitmapImage(new Uri("ms-appx:///Assets/Skin4.png", UriKind.Absolute)));
+            skins.Add(new BitmapImage(new Uri("ms-appx:///Assets/Skin1.png", UriKind.Absolute)));
+            skins.Add(new BitmapImage(new Uri("ms-appx:///Assets/Skin2.png", UriKind.Absolute)));
+            skins.Add(new BitmapImage(new Uri("ms-appx:///Assets/Skin3.png", UriKind.Absolute)));
+            skins.Add(new BitmapImage(new Uri("ms-appx:///Assets/Skin4.png", UriKind.Absolute)));
+            skins.Add(new BitmapImage(new Uri("ms-appx:///Assets/Featured1.png", UriKind.Absolute)));
+            skins.Add(new BitmapImage(new Uri("ms-appx:///Assets/Featured2.png", UriKind.Absolute)));
+            skins.Add(new BitmapImage(new Uri("ms-appx:///Assets/Featured3.png", UriKind.Absolute)));
+            skins.Add(new BitmapImage(new Uri("ms-appx:///Assets/Featured4.png", UriKind.Absolute)));
 
-            grafittis.Add(0, new BitmapImage(new Uri("ms-appx:///Assets/Grafitti1.png", UriKind.Absolute)));
+            grafittis.Add(new BitmapImage(new Uri("ms-appx:///Assets/Grafitti1.png", UriKind.Absolute)));
             gemas = Player.gems;
             gold = Player.gold;
             daily = true;
@@ -56,7 +60,7 @@ namespace ProyectoDSI
 
         private void GoBack(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(Frame.BackStack.Last().SourcePageType);
+            this.Frame.Navigate(typeof(MainPage));
         }
 
         private void ShowSkin(object sender, RoutedEventArgs e)
@@ -66,12 +70,6 @@ namespace ProyectoDSI
         }
 
         private void ShowCharacter(object sender, RoutedEventArgs e)
-        {
-            var index = ((Button)sender).Tag;
-            displayImage.Source = characters[Int32.Parse((string)index)];
-        }
-
-        private void ShowVoice(object sender, RoutedEventArgs e)
         {
             var index = ((Button)sender).Tag;
             displayImage.Source = characters[Int32.Parse((string)index)];
@@ -94,15 +92,15 @@ namespace ProyectoDSI
             challengeText2.Text = (challengeList[2]).message;
             challengeText3.Text = (challengeList[3]).message;
 
-            challengeStatus0.Text = (challengeList[0]).actualValue + "/" +(challengeList[0]).maxValue;
-            challengeStatus1.Text = (challengeList[1]).actualValue + "/" +(challengeList[1]).maxValue;
-            challengeStatus2.Text = (challengeList[2]).actualValue + "/" +(challengeList[2]).maxValue;
-            challengeStatus3.Text = (challengeList[3]).actualValue + "/" +(challengeList[3]).maxValue;
+            challengeStatus0.Text = (challengeList[0]).actualValue + "/" + (challengeList[0]).maxValue;
+            challengeStatus1.Text = (challengeList[1]).actualValue + "/" + (challengeList[1]).maxValue;
+            challengeStatus2.Text = (challengeList[2]).actualValue + "/" + (challengeList[2]).maxValue;
+            challengeStatus3.Text = (challengeList[3]).actualValue + "/" + (challengeList[3]).maxValue;
 
-            challengeBorder0.Visibility = ((challengeList[0]).actualValue < (challengeList[0]).maxValue) ? Visibility.Collapsed : Visibility.Visible;
-            challengeBorder1.Visibility = ((challengeList[1]).actualValue < (challengeList[1]).maxValue) ? Visibility.Collapsed : Visibility.Visible;
-            challengeBorder2.Visibility = ((challengeList[2]).actualValue < (challengeList[2]).maxValue) ? Visibility.Collapsed : Visibility.Visible;
-            challengeBorder3.Visibility = ((challengeList[3]).actualValue < (challengeList[3]).maxValue) ? Visibility.Collapsed : Visibility.Visible;
+            challengeBorder0.Visibility = (!(challengeList[0]).completed) ? Visibility.Collapsed : Visibility.Visible;
+            challengeBorder1.Visibility = (!(challengeList[1]).completed) ? Visibility.Collapsed : Visibility.Visible;
+            challengeBorder2.Visibility = (!(challengeList[2]).completed) ? Visibility.Collapsed : Visibility.Visible;
+            challengeBorder3.Visibility = (!(challengeList[3]).completed) ? Visibility.Collapsed : Visibility.Visible;
 
         }
 
@@ -110,7 +108,7 @@ namespace ProyectoDSI
         {
             daily = true;
             ((Button)sender).Background = (SolidColorBrush)Resources["yellowColor"];
-            weaklyButton.Background=(SolidColorBrush)Resources["grayColor"];
+            weaklyButton.Background = (SolidColorBrush)Resources["grayColor"];
             ShowChallenges();
         }
 

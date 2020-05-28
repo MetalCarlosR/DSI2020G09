@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Shapes;
 
@@ -28,6 +29,9 @@ namespace ProyectoDSI
         Button lastClicked = null;
         string iconProfile;
         List<StoreItem> items_;
+
+        int currencyAmount = 0;
+        bool coins = true;
         public Store()
         {
             this.InitializeComponent();
@@ -41,8 +45,6 @@ namespace ProyectoDSI
             money.Text = Player.gold.ToString();
             gems.Text = Player.gems.ToString();
             iconProfile = Player.icono.image;
-
-
         }
 
         private void WindowClicked(object sender, RoutedEventArgs e)
@@ -51,6 +53,8 @@ namespace ProyectoDSI
             CharacterOptions.Visibility = Visibility.Collapsed;
             SkinsOptions.Visibility = Visibility.Collapsed;
             MadOptions.Visibility = Visibility.Collapsed;
+            BuyOption.Visibility = Visibility.Collapsed;
+            BuyCurrency.Visibility = Visibility.Collapsed;
 
             Featured.Background = (SolidColorBrush)Resources["BlueColor"];
             Characters.Background = (SolidColorBrush)Resources["BlueColor"];
@@ -58,7 +62,7 @@ namespace ProyectoDSI
             MadCoins.Background = (SolidColorBrush)Resources["BlueColor"];
 
             Button b = sender as Button;
-            switch(b.Name)
+            switch (b.Name)
             {
                 case "Featured":
                     FeaturedOptions.Visibility = Visibility.Visible;
@@ -81,7 +85,7 @@ namespace ProyectoDSI
 
         private void GoBack(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(Frame.BackStack.Last().SourcePageType);
+            this.Frame.Navigate(typeof(MainPage));
         }
 
         private void AddCharacterToLoadOut(object sender, RoutedEventArgs e)
@@ -117,10 +121,70 @@ namespace ProyectoDSI
             {
                 if (!bought.bought && int.Parse(money.Text.ToString()) - bought.money >= 0 && int.Parse(gems.Text.ToString()) - bought.gems >= 0)
                 {
+                    BuyingItem.Source = new BitmapImage(new Uri("ms-appx:///" + bought.image));
+
+                    if (bought.type == StoreItem.Type.skin)
+                    {
+                        Price.Text = bought.gems.ToString();
+                        CoinType.Source = new BitmapImage(new Uri("ms-appx:///Assets/Gem.png"));
+                    }
+                    else
+                    {
+                        Price.Text = bought.money.ToString();
+                        CoinType.Source = new BitmapImage(new Uri("ms-appx:///Assets/Coin.png"));
+                    }
                     BuyOption.Visibility = Visibility.Visible;
                 }
             }
             else lastClicked = null;
+        }
+
+        private void BattlePass_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(BattlePass));
+        }
+
+        private void Gems_Click(object sender, RoutedEventArgs e)
+        {
+            var index = ((Button)sender).Tag;
+
+            int amount = Int32.Parse((string)index); ;
+
+            currencyAmount = amount;
+            Amount.Text = amount.ToString();
+            Currency.Source = new BitmapImage(new Uri("ms-appx:///Assets/Gem.png"));
+            coins = false;
+            BuyCurrency.Visibility = Visibility.Visible;
+        }
+
+        private void Coins_Click(object sender, RoutedEventArgs e)
+        {
+            var index = ((Button)sender).Tag;
+
+            int amount = Int32.Parse((string)index); ;
+
+            currencyAmount = amount;
+            Amount.Text = amount.ToString();
+            Currency.Source = new BitmapImage(new Uri("ms-appx:///Assets/Coin.png"));
+            coins = true;
+
+            BuyCurrency.Visibility = Visibility.Visible;
+        }
+
+        private void AddCurrency(object sender, RoutedEventArgs e)
+        {
+            if (coins) Player.gold += currencyAmount;
+            else Player.gems += currencyAmount;
+
+            money.Text = Player.gold.ToString();
+            gems.Text = Player.gems.ToString();
+            BuyCurrency.Visibility = Visibility.Collapsed;
+        }
+
+        private void RejectCurrency(object sender, RoutedEventArgs e)
+        {
+            BuyCurrency.Visibility = Visibility.Collapsed;
+            currencyAmount = 0;
         }
     }
 }
