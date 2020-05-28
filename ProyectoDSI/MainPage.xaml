@@ -74,12 +74,12 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
+            <Image Source="./Assets/Fondo.jpg" Grid.ColumnSpan="2" Grid.RowSpan="4" Stretch="Fill"/>
             <!--Imagenes, en el juego seria el propio motor de renderizado-->
             <Canvas Grid.RowSpan="4" Grid.ColumnSpan="2">
-                <Image Source="./Assets/Fondo.jpg" Canvas.Top="-100"/>
                 <!--Coche-->
                 <Image Source="./Assets/CarRender.png" Stretch="Fill" Canvas.Left="280" Canvas.Top="50" Width="1400" Grid.RowSpan="4"/>
-                
+
                 <!--Personaje Izquierda-->
                 <Image Source="./Assets/Character.png" Width="500" Canvas.Top="300" Canvas.Left="280"/>
                 <TextBlock Text="Player 2" Canvas.Left="480" Canvas.Top="250" FontSize="32"/>
@@ -103,15 +103,6 @@
                     <SymbolIcon x:Name="ActualRolIcon" Symbol="Target"/>
                 </Viewbox>
             </Canvas>
-            
-
-            
-
-            <Button Grid.Row="2" Grid.Column="1" Margin="760,187,0,0" VerticalAlignment="Top" Height="90" Width="90" Click="ShowFriendList">
-                <Viewbox>
-                    <SymbolIcon Symbol="AddFriend"/>
-                </Viewbox>
-            </Button>
 
             <!--Botones superiores-->
             <Grid Grid.ColumnSpan="2">
@@ -392,6 +383,18 @@
                     <SymbolIcon Symbol="Sync"/>
                 </Viewbox>
             </Button>
+
+            <Grid Grid.Row="1" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Height="90" Width="90" Click="ShowFriendList">
+                    <Viewbox>
+                        <SymbolIcon Symbol="AddFriend"/>
+                    </Viewbox>
+                </Button>
+            </Grid>
         </Grid>
     </Grid>
 </Page>
